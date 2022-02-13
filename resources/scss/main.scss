@@ -1,0 +1,52 @@
+@import "~materialize-css/sass/materialize";
+
+.auth-form-container{
+    margin-top: 8rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    .form-wrapper{
+        flex-basis: 50%;
+        .form{
+            margin-top: 2rem;
+
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            grid-column-gap: 2rem;
+
+            .input-field{
+                grid-column: span 2;
+            }
+            .half-width{
+                grid-column: span 1;
+            }
+
+            .btn-submit{
+                margin-top: 2rem;
+            }
+        }
+    }
+}
+
+.tab-wrapper{
+    display: flex;
+    justify-content: space-between;
+
+    border-bottom: 1px solid black;
+    .tab{
+        padding: 1.5rem 3rem;
+        margin: 0;
+
+        border: none;
+        background-color: inherit;
+
+        flex-basis: 50%;
+
+
+        &.tab-active{
+            border-bottom: 2px solid black;
+            font-weight: bold;
+        }
+    }
+}

@@ -13,6 +13,7 @@
     <link rel="stylesheet" href="{{asset('css/app.css')}}">
 </head>
 <body class="antialiased">
+@routes
 <div id="app">
     <app></app>
 </div>
