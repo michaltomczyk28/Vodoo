@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\Api\AuthController;
+use App\Http\Controllers\Api\TaskController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -14,15 +15,17 @@ use Illuminate\Support\Facades\Route;
 | is assigned the "api" middleware group. Enjoy building your API!
 |
 */
+Route::name('api.')->group(function(){
+    Route::name('auth.')->group(function(){
+        Route::post('/register', [AuthController::class, 'register'])->name('register');
+        Route::post('/login', [AuthController::class, 'login'])->name('login');
 
-Route::post('/register', [AuthController::class, 'register'])->name('api.auth.register');
-Route::post('/login', [AuthController::class, 'login'])->name('api.auth.login');
+        Route::middleware('auth:sanctum')->group(function(){
+            Route::post('/logout', [AuthController::class, 'logout'])->name('logout');
+            Route::get('/user', [AuthController::class, 'user'])->name('user');
+        });
+    });
 
-Route::group(['middleware' => ['auth:sanctum']], function(){
-    Route::post('/logout', [AuthController::class, 'logout'])->name('api.auth.logout');
-    Route::get('/user', [AuthController::class, 'user'])->name('api.auth.user');
+    Route::apiResource('tasks', TaskController::class);
 });
 
-//Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
-//    return $request->user();
-//});
