@@ -20,7 +20,6 @@ class TaskController extends Controller
     {
         $task = Task::create($request->all());
 
-
         return (new TaskResource($task->fresh()))
             ->response()
             ->setStatusCode(201);

@@ -13,4 +13,8 @@ class Task extends Model
         'description',
         'is_done'
     ];
+
+    public function users(){
+        return $this->belongsToMany(User::class);
+    }
 }

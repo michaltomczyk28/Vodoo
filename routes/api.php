@@ -26,6 +26,8 @@ Route::name('api.')->group(function(){
         });
     });
 
-    Route::apiResource('tasks', TaskController::class);
+    Route::middleware('auth:sanctum')->group(function(){
+        Route::apiResource('tasks', TaskController::class);
+    });
 });
 
