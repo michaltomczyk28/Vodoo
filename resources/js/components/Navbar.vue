@@ -4,6 +4,7 @@
 
     function logout(){
         store.dispatch('auth/logout');
+        store.dispatch('resetAll');
     }
 </script>
 

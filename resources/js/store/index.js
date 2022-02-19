@@ -3,6 +3,11 @@ import auth from "./auth";
 import task from './task'
 
 const store = createStore({
+    actions: {
+        resetAll({commit}){
+            commit('task/RESET');
+        }
+    },
     modules: {
         auth,
         task

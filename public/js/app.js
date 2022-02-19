@@ -19488,6 +19488,7 @@ __webpack_require__.r(__webpack_exports__);
 
     function logout() {
       store.dispatch('auth/logout');
+      store.dispatch('resetAll');
     }
 
     var __returned__ = {
@@ -19528,13 +19529,25 @@ __webpack_require__.r(__webpack_exports__);
     var tasks = (0,vue__WEBPACK_IMPORTED_MODULE_0__.computed)(function () {
       return store.getters['task/tasks'];
     });
+    var taskName = (0,vue__WEBPACK_IMPORTED_MODULE_0__.ref)('');
+
+    function addTask() {
+      store.dispatch('task/createTask', {
+        name: taskName.value
+      });
+      taskName.value = '';
+    }
+
     (0,vue__WEBPACK_IMPORTED_MODULE_0__.onMounted)(function () {
       store.dispatch('task/getTasksForAuthenticatedUser');
     });
     var __returned__ = {
       store: store,
       tasks: tasks,
+      taskName: taskName,
+      addTask: addTask,
       useStore: vuex__WEBPACK_IMPORTED_MODULE_1__.useStore,
+      ref: vue__WEBPACK_IMPORTED_MODULE_0__.ref,
       onMounted: vue__WEBPACK_IMPORTED_MODULE_0__.onMounted,
       computed: vue__WEBPACK_IMPORTED_MODULE_0__.computed
     };
@@ -19881,8 +19894,14 @@ __webpack_require__.r(__webpack_exports__);
 var _hoisted_1 = {
   "class": "container"
 };
+var _hoisted_2 = {
+  "class": "task-list"
+};
+var _hoisted_3 = {
+  "class": "task"
+};
 
-var _hoisted_2 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("input", {
+var _hoisted_4 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("input", {
   type: "checkbox",
   "class": "filled-in",
   checked: "checked"
@@ -19890,14 +19909,34 @@ var _hoisted_2 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementV
 /* HOISTED */
 );
 
+var _hoisted_5 = {
+  "class": "input-field col s6"
+};
+var _hoisted_6 = ["onKeyup"];
+
+var _hoisted_7 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("label", {
+  "for": "task_name"
+}, "Dodaj zadanie", -1
+/* HOISTED */
+);
+
 function render(_ctx, _cache, $props, $setup, $data, $options) {
-  return (0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("div", _hoisted_1, [((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(true), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)(vue__WEBPACK_IMPORTED_MODULE_0__.Fragment, null, (0,vue__WEBPACK_IMPORTED_MODULE_0__.renderList)($setup.tasks, function (task) {
-    return (0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("p", null, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("label", null, [_hoisted_2, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("span", null, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(task.name), 1
+  return (0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("div", _hoisted_1, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_2, [((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(true), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)(vue__WEBPACK_IMPORTED_MODULE_0__.Fragment, null, (0,vue__WEBPACK_IMPORTED_MODULE_0__.renderList)($setup.tasks, function (task) {
+    return (0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("div", _hoisted_3, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("label", null, [_hoisted_4, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("span", null, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(task.name), 1
     /* TEXT */
     )])]);
   }), 256
   /* UNKEYED_FRAGMENT */
-  ))]);
+  ))]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_5, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.withDirectives)((0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("input", {
+    id: "task_name",
+    type: "text",
+    "onUpdate:modelValue": _cache[0] || (_cache[0] = function ($event) {
+      return $setup.taskName = $event;
+    }),
+    onKeyup: (0,vue__WEBPACK_IMPORTED_MODULE_0__.withKeys)($setup.addTask, ["enter"])
+  }, null, 40
+  /* PROPS, HYDRATE_EVENTS */
+  , _hoisted_6), [[vue__WEBPACK_IMPORTED_MODULE_0__.vModelText, $setup.taskName]]), _hoisted_7])]);
 }
 
 /***/ }),
@@ -20161,9 +20200,7 @@ __webpack_require__.r(__webpack_exports__);
 function render(_ctx, _cache, $props, $setup, $data, $options) {
   var _component_router_view = (0,vue__WEBPACK_IMPORTED_MODULE_0__.resolveComponent)("router-view");
 
-  return (0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)(vue__WEBPACK_IMPORTED_MODULE_0__.Fragment, null, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("    <template v-if=\"isLoggedIn\">"), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("        <Navbar />"), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("    </template>"), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("    <AuthForm v-else />"), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_router_view)], 2112
-  /* STABLE_FRAGMENT, DEV_ROOT_FRAGMENT */
-  );
+  return (0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createBlock)(_component_router_view);
 }
 
 /***/ }),
@@ -20427,6 +20464,8 @@ var actions = {
     }))();
   },
   logout: function logout(_ref4) {
+    var _this = this;
+
     return _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().mark(function _callee4() {
       var commit, response;
       return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().wrap(function _callee4$(_context4) {
@@ -20442,7 +20481,9 @@ var actions = {
               commit('SET_USER', null);
               localStorage.removeItem('authToken');
 
-            case 6:
+              _this.reset();
+
+            case 7:
             case "end":
               return _context4.stop();
           }
@@ -20479,6 +20520,12 @@ __webpack_require__.r(__webpack_exports__);
 
 
 var store = (0,vuex__WEBPACK_IMPORTED_MODULE_2__.createStore)({
+  actions: {
+    resetAll: function resetAll(_ref) {
+      var commit = _ref.commit;
+      commit('task/RESET');
+    }
+  },
   modules: {
     auth: _auth__WEBPACK_IMPORTED_MODULE_0__["default"],
     task: _task__WEBPACK_IMPORTED_MODULE_1__["default"]
@@ -20509,9 +20556,14 @@ function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) { try
 function _asyncToGenerator(fn) { return function () { var self = this, args = arguments; return new Promise(function (resolve, reject) { var gen = fn.apply(self, args); function _next(value) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "next", value); } function _throw(err) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "throw", err); } _next(undefined); }); }; }
 
 
-var state = {
-  tasks: []
-};
+
+function initialState() {
+  return {
+    tasks: []
+  };
+}
+
+var state = initialState();
 var getters = {
   tasks: function tasks(state) {
     return state.tasks;
@@ -20520,6 +20572,12 @@ var getters = {
 var mutations = {
   SET_TASKS: function SET_TASKS(state, payload) {
     state.tasks = payload;
+  },
+  CREATE_TASK: function CREATE_TASK(state, payload) {
+    state.tasks.unshift(payload);
+  },
+  RESET: function RESET(state) {
+    Object.assign(state, initialState());
   }
 };
 var actions = {
@@ -20544,6 +20602,29 @@ var actions = {
           }
         }
       }, _callee);
+    }))();
+  },
+  createTask: function createTask(_ref2, payload) {
+    return _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().mark(function _callee2() {
+      var commit, response;
+      return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().wrap(function _callee2$(_context2) {
+        while (1) {
+          switch (_context2.prev = _context2.next) {
+            case 0:
+              commit = _ref2.commit;
+              _context2.next = 3;
+              return _api__WEBPACK_IMPORTED_MODULE_1__["default"].post(route('api.tasks.store'), payload);
+
+            case 3:
+              response = _context2.sent;
+              commit('CREATE_TASK', response.data.data);
+
+            case 5:
+            case "end":
+              return _context2.stop();
+          }
+        }
+      }, _callee2);
     }))();
   }
 };

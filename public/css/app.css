@@ -8222,3 +8222,7 @@ input[type=range]::-ms-thumb {
   border-bottom: 2px solid black;
   font-weight: bold;
 }
+
+.task-list {
+  margin: 4rem 0 3rem;
+}

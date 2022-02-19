@@ -14,13 +14,19 @@ class TaskController extends Controller
 {
     public function index()
     {
-        $userTasks = auth()->user()->tasks;
+        $userTasks = Auth::user()
+            ->tasks()
+            ->orderBy('created_at', 'desc')
+            ->get();
+
         return TaskResource::collection($userTasks);
     }
 
     public function store(CreateTaskRequest $request)
     {
-        $task = Task::create($request->all());
+        $task = Auth::user()
+            ->tasks()
+            ->create($request->all());
 
         return (new TaskResource($task->fresh()))
             ->response()

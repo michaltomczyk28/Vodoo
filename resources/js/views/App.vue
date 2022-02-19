@@ -25,9 +25,5 @@
 </script>
 
 <template>
-<!--    <template v-if="isLoggedIn">-->
-<!--        <Navbar />-->
-<!--    </template>-->
-<!--    <AuthForm v-else />-->
     <router-view></router-view>
 </template>

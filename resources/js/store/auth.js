@@ -46,6 +46,7 @@ const actions = {
 
         commit('SET_USER', null);
         localStorage.removeItem('authToken');
+        this.reset();
     }
 };
 
