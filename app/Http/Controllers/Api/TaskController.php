@@ -47,6 +47,15 @@ class TaskController extends Controller
             ->setStatusCode(200);
     }
 
+    public function toggleDone(Task $task){
+        $task->is_done = !$task->is_done;
+        $task->save();
+
+        return (new TaskResource($task))
+            ->response()
+            ->setStatusCode(200);
+    }
+
     public function destroy(Task $task)
     {
         $task->delete();

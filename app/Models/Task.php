@@ -14,6 +14,10 @@ class Task extends Model
         'is_done'
     ];
 
+    protected $casts = [
+        'is_done' => 'boolean'
+    ];
+
     public function users(){
         return $this->belongsToMany(User::class);
     }

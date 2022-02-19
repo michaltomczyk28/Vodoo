@@ -19538,6 +19538,10 @@ __webpack_require__.r(__webpack_exports__);
       taskName.value = '';
     }
 
+    function toggleTask(id) {
+      store.dispatch('task/toggleTask', id);
+    }
+
     (0,vue__WEBPACK_IMPORTED_MODULE_0__.onMounted)(function () {
       store.dispatch('task/getTasksForAuthenticatedUser');
     });
@@ -19546,6 +19550,7 @@ __webpack_require__.r(__webpack_exports__);
       tasks: tasks,
       taskName: taskName,
       addTask: addTask,
+      toggleTask: toggleTask,
       useStore: vuex__WEBPACK_IMPORTED_MODULE_1__.useStore,
       ref: vue__WEBPACK_IMPORTED_MODULE_0__.ref,
       onMounted: vue__WEBPACK_IMPORTED_MODULE_0__.onMounted,
@@ -19900,15 +19905,7 @@ var _hoisted_2 = {
 var _hoisted_3 = {
   "class": "task"
 };
-
-var _hoisted_4 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("input", {
-  type: "checkbox",
-  "class": "filled-in",
-  checked: "checked"
-}, null, -1
-/* HOISTED */
-);
-
+var _hoisted_4 = ["checked", "onChange"];
 var _hoisted_5 = {
   "class": "input-field col s6"
 };
@@ -19922,8 +19919,21 @@ var _hoisted_7 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementV
 
 function render(_ctx, _cache, $props, $setup, $data, $options) {
   return (0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("div", _hoisted_1, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_2, [((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(true), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)(vue__WEBPACK_IMPORTED_MODULE_0__.Fragment, null, (0,vue__WEBPACK_IMPORTED_MODULE_0__.renderList)($setup.tasks, function (task) {
-    return (0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("div", _hoisted_3, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("label", null, [_hoisted_4, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("span", null, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(task.name), 1
-    /* TEXT */
+    return (0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("div", _hoisted_3, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("label", null, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("input", {
+      type: "checkbox",
+      "class": "filled-in",
+      checked: task.is_done,
+      onChange: function onChange($event) {
+        return $setup.toggleTask(task.id);
+      }
+    }, null, 40
+    /* PROPS, HYDRATE_EVENTS */
+    , _hoisted_4), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("span", {
+      "class": (0,vue__WEBPACK_IMPORTED_MODULE_0__.normalizeClass)({
+        'done': task.is_done
+      })
+    }, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(task.name), 3
+    /* TEXT, CLASS */
     )])]);
   }), 256
   /* UNKEYED_FRAGMENT */
@@ -20555,6 +20565,18 @@ function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) { try
 
 function _asyncToGenerator(fn) { return function () { var self = this, args = arguments; return new Promise(function (resolve, reject) { var gen = fn.apply(self, args); function _next(value) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "next", value); } function _throw(err) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "throw", err); } _next(undefined); }); }; }
 
+function _toConsumableArray(arr) { return _arrayWithoutHoles(arr) || _iterableToArray(arr) || _unsupportedIterableToArray(arr) || _nonIterableSpread(); }
+
+function _nonIterableSpread() { throw new TypeError("Invalid attempt to spread non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); }
+
+function _unsupportedIterableToArray(o, minLen) { if (!o) return; if (typeof o === "string") return _arrayLikeToArray(o, minLen); var n = Object.prototype.toString.call(o).slice(8, -1); if (n === "Object" && o.constructor) n = o.constructor.name; if (n === "Map" || n === "Set") return Array.from(o); if (n === "Arguments" || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n)) return _arrayLikeToArray(o, minLen); }
+
+function _iterableToArray(iter) { if (typeof Symbol !== "undefined" && iter[Symbol.iterator] != null || iter["@@iterator"] != null) return Array.from(iter); }
+
+function _arrayWithoutHoles(arr) { if (Array.isArray(arr)) return _arrayLikeToArray(arr); }
+
+function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len = arr.length; for (var i = 0, arr2 = new Array(len); i < len; i++) { arr2[i] = arr[i]; } return arr2; }
+
 
 
 function initialState() {
@@ -20567,6 +20589,13 @@ var state = initialState();
 var getters = {
   tasks: function tasks(state) {
     return state.tasks;
+  },
+  taskIndex: function taskIndex(state) {
+    return function (id) {
+      return state.tasks.findIndex(function (task) {
+        return task.id === id;
+      });
+    };
   }
 };
 var mutations = {
@@ -20576,19 +20605,26 @@ var mutations = {
   CREATE_TASK: function CREATE_TASK(state, payload) {
     state.tasks.unshift(payload);
   },
+  TOGGLE_TASK: function TOGGLE_TASK(state, _ref) {
+    var getters = _ref.getters,
+        id = _ref.id;
+    var index = getters.taskIndex(id);
+    state.tasks[index].is_done = !state.tasks[index].is_done;
+    state.tasks = _toConsumableArray(state.tasks);
+  },
   RESET: function RESET(state) {
     Object.assign(state, initialState());
   }
 };
 var actions = {
-  getTasksForAuthenticatedUser: function getTasksForAuthenticatedUser(_ref) {
+  getTasksForAuthenticatedUser: function getTasksForAuthenticatedUser(_ref2) {
     return _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().mark(function _callee() {
       var commit, response;
       return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().wrap(function _callee$(_context) {
         while (1) {
           switch (_context.prev = _context.next) {
             case 0:
-              commit = _ref.commit;
+              commit = _ref2.commit;
               _context.next = 3;
               return _api__WEBPACK_IMPORTED_MODULE_1__["default"].get(route('api.tasks.index'));
 
@@ -20604,14 +20640,14 @@ var actions = {
       }, _callee);
     }))();
   },
-  createTask: function createTask(_ref2, payload) {
+  createTask: function createTask(_ref3, payload) {
     return _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().mark(function _callee2() {
       var commit, response;
       return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().wrap(function _callee2$(_context2) {
         while (1) {
           switch (_context2.prev = _context2.next) {
             case 0:
-              commit = _ref2.commit;
+              commit = _ref3.commit;
               _context2.next = 3;
               return _api__WEBPACK_IMPORTED_MODULE_1__["default"].post(route('api.tasks.store'), payload);
 
@@ -20625,6 +20661,34 @@ var actions = {
           }
         }
       }, _callee2);
+    }))();
+  },
+  toggleTask: function toggleTask(_ref4, id) {
+    return _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().mark(function _callee3() {
+      var commit, getters, response;
+      return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().wrap(function _callee3$(_context3) {
+        while (1) {
+          switch (_context3.prev = _context3.next) {
+            case 0:
+              commit = _ref4.commit, getters = _ref4.getters;
+              _context3.next = 3;
+              return _api__WEBPACK_IMPORTED_MODULE_1__["default"].post(route('api.tasks.toggle', {
+                task: id
+              }));
+
+            case 3:
+              response = _context3.sent;
+              commit('TOGGLE_TASK', {
+                getters: getters,
+                id: id
+              });
+
+            case 5:
+            case "end":
+              return _context3.stop();
+          }
+        }
+      }, _callee3);
     }))();
   }
 };

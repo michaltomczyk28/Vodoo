@@ -8226,3 +8226,6 @@ input[type=range]::-ms-thumb {
 .task-list {
   margin: 4rem 0 3rem;
 }
+.task-list .task .done {
+  text-decoration: line-through;
+}

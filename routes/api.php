@@ -28,6 +28,7 @@ Route::name('api.')->group(function(){
 
     Route::middleware('auth:sanctum')->group(function(){
         Route::apiResource('tasks', TaskController::class);
+        Route::post('tasks/{task}/toggle', [TaskController::class, 'toggleDone'])->name('tasks.toggle');
     });
 });
 

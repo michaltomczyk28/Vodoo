@@ -12,6 +12,10 @@
         taskName.value = '';
     }
 
+    function toggleTask(id){
+        store.dispatch('task/toggleTask', id);
+    }
+
     onMounted(()=>{
         store.dispatch('task/getTasksForAuthenticatedUser');
     });
@@ -22,8 +26,8 @@
         <div class="task-list">
             <div class="task" v-for="task in tasks">
                 <label>
-                    <input type="checkbox" class="filled-in" checked="checked" />
-                    <span>{{ task.name }}</span>
+                    <input type="checkbox" class="filled-in" :checked="task.is_done" @change="toggleTask(task.id)" />
+                    <span :class="{'done' : task.is_done}">{{ task.name }}</span>
                 </label>
             </div>
         </div>
