@@ -8,12 +8,14 @@ use App\Http\Requests\UpdateTaskRequest;
 use App\Http\Resources\TaskResource;
 use App\Models\Task;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class TaskController extends Controller
 {
     public function index()
     {
-        return TaskResource::collection(Task::all());
+        $userTasks = auth()->user()->tasks;
+        return TaskResource::collection($userTasks);
     }
 
     public function store(CreateTaskRequest $request)

@@ -4,17 +4,17 @@ const state = {
     user: null
 };
 
-const mutations = {
-    SET_USER(state, payload){
-        state.user = payload;
-    }
-}
-
 const getters = {
     isLoggedIn( state ){
         return state.user !== null;
     }
-}
+};
+
+const mutations = {
+    SET_USER(state, payload){
+        state.user = payload;
+    }
+};
 
 const actions = {
     async getAuthenticatedUser({ commit }){

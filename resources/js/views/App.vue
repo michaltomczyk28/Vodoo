@@ -2,9 +2,10 @@
     import AuthForm from '../components/auth/AuthForm'
     import Navbar from '../components/Navbar'
 
-    import { onBeforeMount, computed, watchEffect } from 'vue';
+    import { onMounted, computed, watchEffect } from 'vue';
     import {useStore} from 'vuex';
     import {useRouter} from 'vue-router'
+
     const store = useStore();
     const router = useRouter();
 
@@ -15,13 +16,12 @@
             router.push('home');
         else
             router.push('auth');
-    })
-    onBeforeMount(() => {
+    });
+
+    onMounted(() => {
         if(localStorage.getItem('authToken'))
             store.dispatch('auth/getAuthenticatedUser');
-
-        console.log(isLoggedIn.value);
-    })
+    });
 </script>
 
 <template>
