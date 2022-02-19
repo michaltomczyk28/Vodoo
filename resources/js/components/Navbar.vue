@@ -10,7 +10,7 @@
 
 <template>
     <nav>
-        <div class="nav-wrapper">
+        <div class="nav-wrapper orange darken-3">
             <div class="container">
                 <a href="#">todo.app</a>
                 <ul id="nav-mobile" class="right">

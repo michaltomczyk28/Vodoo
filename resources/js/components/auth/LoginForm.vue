@@ -31,7 +31,7 @@
         </div>
 
         <div>
-            <button class="btn btn-large btn-submit waves-effect waves-light" type="submit" name="action" @click.prevent="login">
+            <button class="btn btn-large btn-submit waves-effect waves-light orange" type="submit" name="action" @click.prevent="login">
                 Log in
             </button>
         </div>

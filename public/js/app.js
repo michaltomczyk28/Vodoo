@@ -19869,7 +19869,7 @@ var _hoisted_1 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementV
 
 function render(_ctx, _cache, $props, $setup, $data, $options) {
   return (0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("nav", null, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
-    "class": "nav-wrapper"
+    "class": "nav-wrapper orange darken-3"
   }, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
     "class": "container"
   }, [_hoisted_1, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("ul", {
@@ -19929,9 +19929,9 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
     }, null, 40
     /* PROPS, HYDRATE_EVENTS */
     , _hoisted_4), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("span", {
-      "class": (0,vue__WEBPACK_IMPORTED_MODULE_0__.normalizeClass)({
+      "class": (0,vue__WEBPACK_IMPORTED_MODULE_0__.normalizeClass)(["toggle", {
         'done': task.is_done
-      })
+      }])
     }, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(task.name), 3
     /* TEXT, CLASS */
     )])]);
@@ -20058,7 +20058,7 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
   }, null, 512
   /* NEED_PATCH */
   ), [[vue__WEBPACK_IMPORTED_MODULE_0__.vModelText, $setup.user.password]]), _hoisted_5]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", null, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("button", {
-    "class": "btn btn-large btn-submit waves-effect waves-light",
+    "class": "btn btn-large btn-submit waves-effect waves-light orange",
     type: "submit",
     name: "action",
     onClick: (0,vue__WEBPACK_IMPORTED_MODULE_0__.withModifiers)($setup.login, ["prevent"])
@@ -20183,7 +20183,7 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
   }, null, 512
   /* NEED_PATCH */
   ), [[vue__WEBPACK_IMPORTED_MODULE_0__.vModelText, $setup.user.password_confirmation]]), _hoisted_11]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", null, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("button", {
-    "class": "btn btn-large btn-submit waves-effect waves-light",
+    "class": "btn btn-large btn-submit waves-effect waves-light orange",
     type: "submit",
     name: "action",
     onClick: (0,vue__WEBPACK_IMPORTED_MODULE_0__.withModifiers)($setup.register, ["prevent"])

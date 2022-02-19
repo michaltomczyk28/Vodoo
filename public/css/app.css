@@ -8209,7 +8209,7 @@ input[type=range]::-ms-thumb {
 .tab-wrapper {
   display: flex;
   justify-content: space-between;
-  border-bottom: 1px solid black;
+  border-bottom: 1px solid #ff9800;
 }
 .tab-wrapper .tab {
   padding: 1.5rem 3rem;
@@ -8219,8 +8219,9 @@ input[type=range]::-ms-thumb {
   flex-basis: 50%;
 }
 .tab-wrapper .tab.tab-active {
-  border-bottom: 2px solid black;
+  border-bottom: 2px solid #ff9800;
   font-weight: bold;
+  color: #ff9800;
 }
 
 .task-list {
@@ -8228,4 +8229,17 @@ input[type=range]::-ms-thumb {
 }
 .task-list .task .done {
   text-decoration: line-through;
+}
+.task-list .task input:checked + .toggle::after {
+  background-color: #ff9800 !important;
+  border: 2px solid #ff9800 !important;
+}
+
+.input-field input:focus + label {
+  color: #ff9800 !important;
+}
+
+.input-field input:focus {
+  border-bottom: 1px solid #ff9800 !important;
+  box-shadow: 0 1px 0 0 #ff9800 !important;
 }

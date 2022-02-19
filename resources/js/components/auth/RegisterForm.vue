@@ -44,7 +44,7 @@
             <label for="password_confirmation">Confirm password</label>
         </div>
         <div>
-            <button class="btn btn-large btn-submit waves-effect waves-light" type="submit" name="action" @click.prevent="register">
+            <button class="btn btn-large btn-submit waves-effect waves-light orange" type="submit" name="action" @click.prevent="register">
                 Register
             </button>
         </div>
