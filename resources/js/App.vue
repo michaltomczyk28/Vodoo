@@ -1,6 +1,6 @@
 <script setup>
-    import AuthForm from '../components/auth/AuthForm'
-    import Navbar from '../components/Navbar'
+    import AuthForm from './components/auth/AuthForm'
+    import Navbar from './components/Navbar'
 
     import { onMounted, computed, watchEffect } from 'vue';
     import {useStore} from 'vuex';

@@ -25,6 +25,10 @@ const mutations = {
 
         state.tasks = [...state.tasks];
     },
+    DESTROY_TASK(state, {getters, id}){
+        const index = getters.taskIndex(id);
+        state.tasks.splice(index, 1);
+    },
     RESET(state){
         Object.assign(state, initialState());
     }
@@ -42,6 +46,10 @@ const actions = {
     async toggleTask({commit, getters}, id){
         const response = await api.post(route('api.tasks.toggle', {task: id}));
         commit('TOGGLE_TASK', {getters, id});
+    },
+    async destroyTask({commit, getters}, id){
+        const response = await api.delete(route('api.tasks.destroy', {task: id}));
+        commit('DESTROY_TASK', {getters, id});
     }
 };
 
