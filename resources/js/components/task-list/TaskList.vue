@@ -25,12 +25,6 @@
 <template>
     <div class="container">
         <div class="task-list">
-<!--            <div class="task" v-for="task in tasks">-->
-<!--                <label>-->
-<!--                    <input type="checkbox" class="filled-in" :checked="task.is_done" @change="toggleTask(task.id)" />-->
-<!--                    <span class="toggle" :class="{'done' : task.is_done}">{{ task.name }}</span>-->
-<!--                </label>-->
-<!--            </div>-->
             <TaskListItem v-for="task in tasks" :task="task" />
         </div>
 

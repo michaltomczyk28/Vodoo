@@ -1,15 +1,30 @@
 import Home from './views/Home'
 import Auth from './views/Auth'
+import Task from './views/Task'
 
 export default [
     {
-        path: '/home',
+        path: '/',
         name: 'home',
-        component: Home
+        component: Home,
+        meta: {
+            requiresAuth: true
+        }
     },
     {
         path: '/auth',
         name: 'auth',
-        component: Auth
+        component: Auth,
+        meta: {
+            requiresAuth: false
+        }
+    },
+    {
+        path: '/task/:taskId',
+        name: 'task',
+        component: Task,
+        meta: {
+            requiresAuth: true
+        }
     }
 ]

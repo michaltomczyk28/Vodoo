@@ -11,6 +11,21 @@ const router = VueRouter.createRouter({
     routes
 })
 
+
+router.beforeEach(async (to, from, next) => {
+    if (to.matched.some(record => record.meta.requiresAuth)) {
+        await store.dispatch('auth/getAuthenticatedUser');
+
+        if (!store.getters['auth/isLoggedIn']) {
+            next({ name: 'auth' })
+        } else {
+            next()
+        }
+    } else {
+        next()
+    }
+});
+
 const app = Vue.createApp(App)
 app.use(store);
 app.use(router);

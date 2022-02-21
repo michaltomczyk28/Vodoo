@@ -1,10 +1,15 @@
 <script setup>
     import {useStore} from 'vuex';
-    const store = useStore();
+    import {useRouter} from 'vue-router';
 
-    function logout(){
-        store.dispatch('auth/logout');
+    const store = useStore();
+    const router = useRouter();
+
+    async function logout(){
+        await store.dispatch('auth/logout');
+
         store.dispatch('resetAll');
+        router.push('/auth');
     }
 </script>
 
@@ -14,7 +19,7 @@
             <div class="container">
                 <a href="#">todo.app</a>
                 <ul id="nav-mobile" class="right">
-                    <li><a href="#" @click="logout">Logout</a></li>
+                    <li><a href="#" @click.prevent="logout">Logout</a></li>
                 </ul>
             </div>
         </div>

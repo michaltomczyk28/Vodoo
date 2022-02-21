@@ -12,8 +12,9 @@
         password: ''
     });
 
-    function login(){
-        store.dispatch('auth/login', {...user});
+    async function login(){
+        await store.dispatch('auth/login', {...user});
+        router.push('/');
     }
 
 </script>
