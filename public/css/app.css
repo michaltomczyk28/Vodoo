@@ -8202,9 +8202,6 @@ input[type=range]::-ms-thumb {
 .auth-form-container .form-wrapper .form .half-width {
   grid-column: span 1;
 }
-.auth-form-container .form-wrapper .form .btn-submit {
-  margin-top: 2rem;
-}
 
 .tab-wrapper {
   display: flex;
@@ -8271,4 +8268,8 @@ input[type=range]::-ms-thumb {
 }
 .input-field input:focus + label {
   color: #ff9800 !important;
+}
+
+.btn, .btn-large, .btn-small {
+  margin-top: 2rem;
 }

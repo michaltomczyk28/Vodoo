@@ -23,9 +23,9 @@
             <span class="toggle" :class="{'done' : task.is_done}">{{ task.name }}</span>
         </label>
         <div>
-            <a href="#">
+            <router-link :to="{name: 'task', params: { taskId: task.id }}">
                 Edytuj
-            </a>
+            </router-link>
             <a href="#" class="remove" @click="removeTask">
                 Usuń
             </a>

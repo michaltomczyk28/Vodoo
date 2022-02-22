@@ -12,8 +12,9 @@
         password_confirmation: ''
     });
 
-    function register(){
-        store.dispatch('auth/register', { ...user });
+    async function register(){
+        await store.dispatch('auth/register', { ...user });
+        router.push('/');
     }
 </script>
 

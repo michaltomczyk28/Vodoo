@@ -24,10 +24,6 @@ $main: map.get($orange, 'base');
             .half-width{
                 grid-column: span 1;
             }
-
-            .btn-submit{
-                margin-top: 2rem;
-            }
         }
     }
 }
@@ -107,7 +103,6 @@ $main: map.get($orange, 'base');
     }
 }
 
-
 .input-field{
     input{
         &:focus{
@@ -121,5 +116,7 @@ $main: map.get($orange, 'base');
     }
 }
 
-
+.btn{
+    margin-top: 2rem;
+}
 

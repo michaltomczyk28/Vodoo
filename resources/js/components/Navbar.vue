@@ -17,7 +17,9 @@
     <nav>
         <div class="nav-wrapper orange darken-3">
             <div class="container">
-                <a href="#">todo.app</a>
+                <router-link :to="{name: 'home'}">
+                    Todo.app
+                </router-link>
                 <ul id="nav-mobile" class="right">
                     <li><a href="#" @click.prevent="logout">Logout</a></li>
                 </ul>

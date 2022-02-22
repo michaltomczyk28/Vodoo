@@ -28,7 +28,6 @@
             <TaskListItem v-for="task in tasks" :task="task" />
         </div>
 
-
         <div class="input-field col s6">
             <input id="task_name" type="text" v-model="taskName" @keyup.enter="addTask">
             <label for="task_name">Dodaj zadanie</label>

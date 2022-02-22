@@ -9,7 +9,7 @@ import store from './store';
 const router = VueRouter.createRouter({
     history: VueRouter.createWebHistory(''),
     routes
-})
+});
 
 
 router.beforeEach(async (to, from, next) => {
