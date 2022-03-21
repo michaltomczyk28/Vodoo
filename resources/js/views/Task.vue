@@ -2,7 +2,7 @@
     import Navbar from "../components/Navbar";
     import Editor from '../components/Editor';
     import {useStore} from 'vuex';
-    import {onMounted, reactive, ref, computed, watchEffect} from 'vue';
+    import {onMounted, ref} from 'vue';
     import {useRoute, useRouter} from 'vue-router';
 
     const store = useStore();
@@ -15,8 +15,8 @@
         description: ''
     });
 
+    const editTitle = ref(false);
     const loading = ref(true);
-
 
     onMounted(async () => {
         await store.dispatch('task/findTask', route.params.taskId);
@@ -28,13 +28,17 @@
         await store.dispatch('task/updateTask', {id: route.params.taskId, value:  task.value});
         router.push('/');
     }
+
+    function updateName(event){
+        task.value.name = event.target.innerText
+    }
 </script>
 
 <template>
     <Navbar/>
     <div class="container" v-if="!loading">
         <div class="section">
-            <h1>{{ task.name }}</h1>
+            <h1 contenteditable @input="updateName">{{ task.name }}</h1>
             <Editor v-model="task.description"/>
             <button class="btn btn-large btn-submit waves-effect waves-light orange" @click.prevent="updateTask">
                 Zapisz

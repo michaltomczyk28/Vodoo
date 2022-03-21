@@ -8278,11 +8278,11 @@ input[type=range]::-ms-thumb {
   padding: 3rem 0;
 }
 
-.icon-nav {
-  font-size: 1.5em;
+.icon-button {
+  font-size: 1.1em;
   color: black;
   padding: 0.5rem;
 }
-.icon-nav:hover {
+.icon-button:hover {
   color: #ff9800;
 }

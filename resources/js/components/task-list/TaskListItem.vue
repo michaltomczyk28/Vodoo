@@ -23,11 +23,11 @@
             <span class="toggle" :class="{'done' : task.is_done}">{{ task.name }}</span>
         </label>
         <div>
-            <router-link :to="{name: 'task', params: { taskId: task.id }}">
-                Edytuj
+            <router-link :to="{name: 'task', params: { taskId: task.id }}" class="icon-button">
+                <span class="fa-solid fa-pen"></span>
             </router-link>
-            <a href="#" class="remove" @click="removeTask">
-                Usuń
+            <a href="#" class="icon-button remove" @click="removeTask">
+                <span class="fa-solid fa-trash"></span>
             </a>
         </div>
 

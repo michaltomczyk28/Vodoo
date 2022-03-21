@@ -30065,6 +30065,7 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
       name: '',
       description: ''
     });
+    var editTitle = (0,vue__WEBPACK_IMPORTED_MODULE_3__.ref)(false);
     var loading = (0,vue__WEBPACK_IMPORTED_MODULE_3__.ref)(true);
     (0,vue__WEBPACK_IMPORTED_MODULE_3__.onMounted)( /*#__PURE__*/_asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().mark(function _callee() {
       return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().wrap(function _callee$(_context) {
@@ -30119,22 +30120,25 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
       return _updateTask.apply(this, arguments);
     }
 
+    function updateName(event) {
+      task.value.name = event.target.innerText;
+    }
+
     var __returned__ = {
       store: store,
       route: route,
       router: router,
       description: description,
       task: task,
+      editTitle: editTitle,
       loading: loading,
       updateTask: updateTask,
+      updateName: updateName,
       Navbar: _components_Navbar__WEBPACK_IMPORTED_MODULE_1__["default"],
       Editor: _components_Editor__WEBPACK_IMPORTED_MODULE_2__["default"],
       useStore: vuex__WEBPACK_IMPORTED_MODULE_4__.useStore,
       onMounted: vue__WEBPACK_IMPORTED_MODULE_3__.onMounted,
-      reactive: vue__WEBPACK_IMPORTED_MODULE_3__.reactive,
       ref: vue__WEBPACK_IMPORTED_MODULE_3__.ref,
-      computed: vue__WEBPACK_IMPORTED_MODULE_3__.computed,
-      watchEffect: vue__WEBPACK_IMPORTED_MODULE_3__.watchEffect,
       useRoute: vue_router__WEBPACK_IMPORTED_MODULE_5__.useRoute,
       useRouter: vue_router__WEBPACK_IMPORTED_MODULE_5__.useRouter
     };
@@ -30811,8 +30815,19 @@ var _hoisted_1 = {
 };
 var _hoisted_2 = ["checked"];
 
-var _hoisted_3 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createTextVNode)(" Edytuj ");
+var _hoisted_3 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("span", {
+  "class": "fa-solid fa-pen"
+}, null, -1
+/* HOISTED */
+);
 
+var _hoisted_4 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("span", {
+  "class": "fa-solid fa-trash"
+}, null, -1
+/* HOISTED */
+);
+
+var _hoisted_5 = [_hoisted_4];
 function render(_ctx, _cache, $props, $setup, $data, $options) {
   var _component_router_link = (0,vue__WEBPACK_IMPORTED_MODULE_0__.resolveComponent)("router-link");
 
@@ -30835,7 +30850,8 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
       params: {
         taskId: $props.task.id
       }
-    }
+    },
+    "class": "icon-button"
   }, {
     "default": (0,vue__WEBPACK_IMPORTED_MODULE_0__.withCtx)(function () {
       return [_hoisted_3];
@@ -30847,9 +30863,9 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
   /* PROPS */
   , ["to"]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("a", {
     href: "#",
-    "class": "remove",
+    "class": "icon-button remove",
     onClick: $setup.removeTask
-  }, " Usuń ")])]);
+  }, _hoisted_5)])]);
 }
 
 /***/ }),
@@ -30921,8 +30937,11 @@ var _hoisted_4 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createTextVNod
 function render(_ctx, _cache, $props, $setup, $data, $options) {
   var _component_router_link = (0,vue__WEBPACK_IMPORTED_MODULE_0__.resolveComponent)("router-link");
 
-  return (0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)(vue__WEBPACK_IMPORTED_MODULE_0__.Fragment, null, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)($setup["Navbar"]), !$setup.loading ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("div", _hoisted_1, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_2, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("h1", null, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)($setup.task.name), 1
-  /* TEXT */
+  return (0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)(vue__WEBPACK_IMPORTED_MODULE_0__.Fragment, null, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)($setup["Navbar"]), !$setup.loading ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("div", _hoisted_1, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_2, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("h1", {
+    contenteditable: "",
+    onInput: $setup.updateName
+  }, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)($setup.task.name), 33
+  /* TEXT, HYDRATE_EVENTS */
   ), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)($setup["Editor"], {
     modelValue: $setup.task.description,
     "onUpdate:modelValue": _cache[0] || (_cache[0] = function ($event) {
