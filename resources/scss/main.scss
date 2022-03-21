@@ -120,3 +120,18 @@ $main: map.get($orange, 'base');
     margin-top: 2rem;
 }
 
+
+.section{
+    padding: 3rem 0;
+}
+
+.icon-nav{
+    font-size: 1.5em;
+    color: black;
+    padding: .5rem;
+
+    &:hover{
+        color: $main;
+    }
+}
+

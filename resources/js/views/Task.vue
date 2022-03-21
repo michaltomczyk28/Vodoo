@@ -33,11 +33,16 @@
 <template>
     <Navbar/>
     <div class="container" v-if="!loading">
-        <h1>{{ task.name }}</h1>
-        <Editor v-model="task.description"/>
-        <button class="btn btn-large btn-submit waves-effect waves-light orange" @click.prevent="updateTask">
-            Update
-        </button>
+        <div class="section">
+            <h1>{{ task.name }}</h1>
+            <Editor v-model="task.description"/>
+            <button class="btn btn-large btn-submit waves-effect waves-light orange" @click.prevent="updateTask">
+                Zapisz
+            </button>
+            <router-link to="/" class="btn btn-large btn-submit waves-effect waves-light orange lighten-3" style="margin-left: 1rem">
+                Cofnij
+            </router-link>
+        </div>
     </div>
 </template>
 
