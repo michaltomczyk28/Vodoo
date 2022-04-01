@@ -13,6 +13,12 @@ const mix = require('laravel-mix');
 mix.js('resources/js/app.js', 'public/js').vue()
     .sass('resources/scss/main.scss', 'css/app.css')
 
+mix.webpackConfig({
+    stats: {
+        children: true
+    }
+})
+
 
 // mix.js('resources/js/app.js', 'public/js')
 //     .postCss('resources/css/app.css', 'public/css', [

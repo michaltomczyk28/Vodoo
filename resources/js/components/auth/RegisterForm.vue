@@ -1,8 +1,13 @@
 <script setup>
+    import Button from '../Button'
+    import InputField from '../InputField'
+
     import { reactive } from 'vue';
     import { useStore } from 'vuex';
+    import { useRouter } from 'vue-router'
 
     const store = useStore();
+    const router = useRouter();
 
     const user = reactive({
         first_name: '',
@@ -19,35 +24,17 @@
 </script>
 
 <template>
-    <form class="form">
-        <div class="input-field half-width">
-            <input id="first_name" type="text" class="validate" v-model="user.first_name">
-            <label for="first_name">First Name</label>
-        </div>
+    <form class="auth-form" @submit.prevent="register">
+        <InputField name="first_name" label="First name" v-model="user.first_name" />
+        <InputField name="last_name" label="Last name" v-model="user.last_name" />
 
-        <div class="input-field half-width">
-            <input id="last_name" type="text" class="validate" v-model="user.last_name">
-            <label for="last_name">Last Name</label>
-        </div>
+        <InputField name="email" label="E-mail address" type="email" v-model="user.email" />
 
-        <div class="input-field">
-            <input id="email" type="email" class="validate" v-model="user.email">
-            <label for="email">Email</label>
-        </div>
+        <InputField name="password" label="Password" type="password" v-model="user.password" />
+        <InputField name="password_confirmation" label="Confirm password" type="password" v-model="user.password_confirmation" />
 
-        <div class="input-field ">
-            <input id="password" type="password" class="validate" v-model="user.password">
-            <label for="password">Password</label>
-        </div>
-
-        <div class="input-field ">
-            <input id="password_confirmation" type="password" class="validate" v-model="user.password_confirmation">
-            <label for="password_confirmation">Confirm password</label>
-        </div>
-        <div>
-            <button class="btn btn-large btn-submit waves-effect waves-light orange" type="submit" name="action" @click.prevent="register">
-                Register
-            </button>
+        <div class="btn-wrapper">
+            <Button outline>Sign up</Button>
         </div>
     </form>
 </template>

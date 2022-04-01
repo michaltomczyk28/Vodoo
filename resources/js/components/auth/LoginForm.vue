@@ -1,4 +1,7 @@
 <script setup>
+    import Button from '../Button'
+    import InputField from '../InputField'
+
     import { reactive } from 'vue';
     import { useStore } from 'vuex';
     import { useRouter } from 'vue-router';
@@ -20,21 +23,12 @@
 </script>
 
 <template>
-    <form class="form">
-        <div class="input-field">
-            <input id="email" type="email" class="validate" v-model="user.email">
-            <label for="email">Email</label>
-        </div>
+    <form class="auth-form" @submit.prevent="login">
+        <InputField name="email" label="E-mail address" type="email" v-model="user.email"/>
+        <InputField name="password" label="Password" type="password" v-model="user.password" />
 
-        <div class="input-field ">
-            <input id="password" type="password" class="validate" v-model="user.password">
-            <label for="password">Password</label>
-        </div>
-
-        <div>
-            <button class="btn btn-large btn-submit waves-effect waves-light orange" type="submit" name="action" @click.prevent="login">
-                Log in
-            </button>
+        <div class="btn-wrapper">
+            <Button outline>Sign in</Button>
         </div>
     </form>
 </template>

@@ -47,6 +47,7 @@ const actions = {
     },
     async login({ commit }, payload){
         const response = await api.post(route('api.auth.login'), payload);
+
         const { user, token } = response.data;
 
         localStorage.setItem('authToken', token)

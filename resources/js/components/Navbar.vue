@@ -14,14 +14,15 @@
 </script>
 
 <template>
-    <nav>
-        <div class="nav-wrapper orange darken-3">
-            <div class="container">
-                <router-link :to="{name: 'home'}">
-                    Todo.app
+    <nav class="main-nav">
+        <div class="container">
+            <div class="nav-wrapper">
+                <router-link :to="{name: 'home'}" >
+                    <img src="/images/logo.png" alt="" class="logo">
                 </router-link>
-                <ul id="nav-mobile" class="right">
-                    <li><a href="#" @click.prevent="logout">Logout</a></li>
+
+                <ul>
+<!--                    <li><a href="#" @click.prevent="logout">Logout</a></li>-->
                 </ul>
             </div>
         </div>

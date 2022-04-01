@@ -2,6 +2,7 @@
     import RegisterForm from "./RegisterForm";
     import LoginForm from "./LoginForm";
     import {ref} from "vue";
+    import Button from '../Button'
 
     const activeTab = ref(0);
 
@@ -11,14 +12,17 @@
 </script>
 
 <template>
-    <div class="auth-form-container">
-        <div class="form-wrapper">
+    <div class="form-wrapper">
+        <div class="container">
             <div class="tab-wrapper">
-                <button class="tab" @click="changeTab(0)" :class="{'tab-active' : activeTab === 0}">Log in</button>
-                <button class="tab" @click="changeTab(1)" :class="{'tab-active' : activeTab === 1}">Register</button>
+                <Button @click="changeTab(0)" :active="activeTab === 0" :outline="activeTab !== 0">Log in</Button>
+                <Button @click="changeTab(1)" :active="activeTab === 1" :outline="activeTab !== 1">Register</Button>
             </div>
+
             <LoginForm v-if="activeTab === 0"/>
             <RegisterForm v-else />
         </div>
+
     </div>
 </template>
+

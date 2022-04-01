@@ -1,137 +1,318 @@
-@use "sass:map";
-@import "~materialize-css/sass/materialize";
+//@use "sass:map";
+//@import "~materialize-css/sass/materialize";
 
-$main: map.get($orange, 'base');
+//$main: map.get($orange, 'base');
+//
+//.auth-form-container{
+//    margin-top: 8rem;
+//    display: flex;
+//    align-items: center;
+//    justify-content: center;
+//
+//    .form-wrapper{
+//        flex-basis: 50%;
+//        .form{
+//            margin-top: 2rem;
+//
+//            display: grid;
+//            grid-template-columns: repeat(2, 1fr);
+//            grid-column-gap: 2rem;
+//
+//            .input-field{
+//                grid-column: span 2;
+//            }
+//            .half-width{
+//                grid-column: span 1;
+//            }
+//        }
+//    }
+//}
+//
+//.tab-wrapper{
+//    display: flex;
+//    justify-content: space-between;
+//
+//    border-bottom: 1px solid $main;
+//    .tab{
+//        padding: 1.5rem 3rem;
+//        margin: 0;
+//
+//        border: none;
+//        background-color: inherit;
+//
+//        flex-basis: 50%;
+//
+//
+//        &.tab-active{
+//            border-bottom: 2px solid $main;
+//            font-weight: bold;
+//            color: $main;
+//        }
+//    }
+//}
+//
+//.task-list{
+//    margin: 4rem 0 3rem;
+//
+//    .task{
+//        display: flex;
+//        justify-content: space-between;
+//        padding: 1rem .4rem;
+//        border-bottom: 1px solid #d3d3d3;
+//
+//        .done{
+//            text-decoration: line-through;
+//        }
+//
+//        .remove{
+//            margin-left: 1rem;
+//            color: inherit;
+//            text-decoration: none;
+//
+//            &:hover{
+//                color: map.get($red, 'base');
+//            }
+//        }
+//
+//        input:checked + .toggle::after{
+//            background-color: $main !important;
+//            border: 2px solid $main !important;
+//        }
+//
+//
+//        input:hover + .toggle{
+//            &::after{
+//                background-color: $main !important;
+//                border: 2px solid $main !important;
+//            }
+//
+//            &::before{
+//                top: 0;
+//                left: 1px;
+//                width: 8px;
+//                height: 13px;
+//                border-top: 2px solid transparent;
+//                border-left: 2px solid transparent;
+//                border-right: 2px solid #fff;
+//                border-bottom: 2px solid #fff;
+//                transform: rotateZ(37deg);
+//                transform-origin: 100% 100%;
+//            }
+//        }
+//
+//    }
+//}
+//
+//.input-field{
+//    input{
+//        &:focus{
+//            border-bottom: 1px solid $main !important;
+//            box-shadow: 0 1px 0 0 $main !important;
+//
+//            & + label{
+//                color: $main !important;
+//            }
+//        }
+//    }
+//}
+//
+//.btn{
+//    margin-top: 2rem;
+//}
+//
+//
+//.section{
+//    padding: 3rem 0;
+//}
+//
+//.icon-button{
+//    font-size: 1.1em;
+//    color: black;
+//    padding: .5rem;
+//
+//    &:hover{
+//        color: $main;
+//    }
+//}
 
-.auth-form-container{
-    margin-top: 8rem;
+
+@import 'atoms';
+@import 'components';
+
+*, *::before, *::after{
+    box-sizing: border-box;
+}
+
+html{
+    font-size: 62.5%;
+
+
+    --main: #E84855;
+    --hover: #ea5a66;
+}
+
+body{
+    font-family: Roboto;
+    font-size: 1.6rem;
+
+    margin: 0;
+    padding: 0;
+}
+
+#app{
+    min-height: 100vh;
     display: flex;
-    align-items: center;
+    flex-direction: column;
+}
+
+.container{
+    margin: 0 3rem;
+}
+
+
+.auth-wrapper{
+    display: flex;
     justify-content: center;
+    //height: 100%;
+
+    flex-grow: 1;
+
+    .right-banner{
+        display: none;
+        background-color: var(--main);
+
+        text-align: right;
+        flex-shrink: 0;
+
+        .content{
+            text-transform: uppercase;
+            letter-spacing: 0.04em;
+            line-height: 1.35;
+
+            color: #fff;
+        }
+    }
 
     .form-wrapper{
-        flex-basis: 50%;
-        .form{
-            margin-top: 2rem;
+        padding: 6rem 0;
+        max-width: 550px;
 
-            display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            grid-column-gap: 2rem;
-
-            .input-field{
-                grid-column: span 2;
-            }
-            .half-width{
-                grid-column: span 1;
-            }
-        }
+        flex-basis: 100%;
+        flex-shrink: 0;
     }
 }
 
-.tab-wrapper{
-    display: flex;
-    justify-content: space-between;
-
-    border-bottom: 1px solid $main;
-    .tab{
-        padding: 1.5rem 3rem;
-        margin: 0;
-
-        border: none;
-        background-color: inherit;
-
-        flex-basis: 50%;
-
-
-        &.tab-active{
-            border-bottom: 2px solid $main;
-            font-weight: bold;
-            color: $main;
-        }
+@media (min-width: 576px) {
+    .container{
+        margin: 0 4rem;
     }
 }
 
-.task-list{
-    margin: 4rem 0 3rem;
+@media (min-width: 768px) {
+    .container{
+        margin: 0 6rem;
+    }
+}
 
-    .task{
-        display: flex;
+@media (min-width: 992px) {
+    .container{
+        margin: 0 8rem;
+        //max-width: 880px;
+    }
+
+    .auth-wrapper{
         justify-content: space-between;
-        padding: 1rem .4rem;
-        border-bottom: 1px solid #d3d3d3;
 
-        .done{
-            text-decoration: line-through;
-        }
+        .right-banner{
+            flex-basis: 50%;
+            display: block;
 
-        .remove{
-            margin-left: 1rem;
-            color: inherit;
-            text-decoration: none;
+            padding: 10rem 0;
 
-            &:hover{
-                color: map.get($red, 'base');
+            .content{
+                font-size: 5rem;
             }
         }
 
-        input:checked + .toggle::after{
-            background-color: $main !important;
-            border: 2px solid $main !important;
-        }
+        .form-wrapper{
+            flex-basis: 50%;
 
-
-        input:hover + .toggle{
-            &::after{
-                background-color: $main !important;
-                border: 2px solid $main !important;
-            }
-
-            &::before{
-                top: 0;
-                left: 1px;
-                width: 8px;
-                height: 13px;
-                border-top: 2px solid transparent;
-                border-left: 2px solid transparent;
-                border-right: 2px solid #fff;
-                border-bottom: 2px solid #fff;
-                transform: rotateZ(37deg);
-                transform-origin: 100% 100%;
-            }
-        }
-
-    }
-}
-
-.input-field{
-    input{
-        &:focus{
-            border-bottom: 1px solid $main !important;
-            box-shadow: 0 1px 0 0 $main !important;
-
-            & + label{
-                color: $main !important;
-            }
+            padding: 8rem 0;
         }
     }
 }
 
-.btn{
-    margin-top: 2rem;
-}
+@media (min-width: 1200px) {
+    .container{
+        margin: 0 10rem;
+    }
 
+    .auth-wrapper{
+        .right-banner{
+            .content{
+                font-size: 5.5rem;
+            }
+        }
 
-.section{
-    padding: 3rem 0;
-}
-
-.icon-button{
-    font-size: 1.1em;
-    color: black;
-    padding: .5rem;
-
-    &:hover{
-        color: $main;
+        .form-wrapper{
+            max-width: unset;
+        }
     }
 }
 
+@media (min-width: 1400px) {
+    .container{
+        margin: 0 13rem;
+    }
+
+    .auth-wrapper{
+        .right-banner{
+            padding: 12rem 0;
+            .content{
+                font-size: 6rem;
+            }
+        }
+
+        .form-wrapper{
+            padding: 10rem 0;
+        }
+    }
+}
+
+@media (min-width: 1680px) {
+    .container{
+        margin: 0 16rem;
+    }
+
+    .auth-wrapper{
+        .right-banner{
+            padding: 14rem 0;
+            .content{
+                font-size: 7rem;
+            }
+        }
+
+        .form-wrapper{
+            padding: 12rem 0;
+        }
+    }
+}
+
+@media (min-width: 1920px) {
+    .container{
+        margin: 0 20rem;
+    }
+
+    .auth-wrapper{
+        .right-banner{
+            padding: 18rem 0;
+            .content{
+                font-size: 7.5rem;
+            }
+        }
+
+        .form-wrapper{
+            padding: 16rem 0;
+        }
+    }
+}
