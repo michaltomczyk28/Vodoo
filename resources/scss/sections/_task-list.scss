@@ -1,0 +1,69 @@
+.task{
+    display: flex;
+    justify-content: space-between;
+
+    margin-bottom: 3.5rem;
+
+    .task-left{
+        display: flex;
+    }
+
+    .task-right{
+        .icon-button{
+            color: var(--black);
+
+            &:hover{
+                color: var(--main);
+            }
+        }
+    }
+}
+
+.task-list{
+    position: relative;
+
+    .task-new{
+        position: sticky;
+
+        background-color: white;
+        padding: 2rem 0 2rem;
+
+        width: 100%;
+        bottom: 0;
+    }
+}
+
+@media (min-width: 576px) {
+    .task-list{
+        .task-new{
+            padding: 2rem 0 3rem;
+        }
+    }
+}
+
+@media (min-width: 768px) {
+
+}
+
+@media (min-width: 992px) {
+    .task-list{
+        .task-new{
+            padding: 3rem 0 4rem;
+        }
+    }
+}
+
+@media (min-width: 1200px) {
+
+}
+
+@media (min-width: 1400px) {
+
+}
+
+@media (min-width: 1680px) {
+
+}
+
+@media (min-width: 1920px) {
+}

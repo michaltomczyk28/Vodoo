@@ -1,0 +1,84 @@
+*, *::before, *::after{
+    box-sizing: border-box !important;
+}
+
+:root{
+    font-size: 62.5%;
+
+    --main: #E84855;
+    --hover: #ea5a66;
+    --black: #000;
+
+    --hover-content: '';
+    --navbar-height: 75px;
+
+    --vertical-padding: 6rem;
+    --container-margin: 3rem;
+}
+
+body{
+    font-family: Roboto;
+    font-size: 1.6rem;
+
+    margin: 0;
+    padding: 0;
+}
+
+#app{
+    min-height: 100vh;
+
+    display: flex;
+    flex-direction: column;
+}
+
+.container{
+    margin: 0 var(--container-margin);
+}
+
+@media (min-width: 576px) {
+    :root{
+        --container-margin: 4rem;
+    }
+}
+
+@media (min-width: 768px) {
+    :root{
+        --container-margin: 6rem;
+    }
+}
+
+@media (min-width: 992px) {
+    :root{
+        --navbar-height: 90px;
+        --vertical-padding: 8rem;
+        --container-margin: 8rem;
+    }
+}
+
+@media (min-width: 1200px) {
+    :root{
+        --container-margin: 10rem;
+    }
+}
+
+@media (min-width: 1400px) {
+    :root{
+        --navbar-height: 100px;
+        --vertical-padding: 10rem;
+        --container-margin: 13rem;
+    }
+}
+
+@media (min-width: 1680px) {
+    :root{
+        --container-margin: 16rem;
+    }
+}
+
+@media (min-width: 1920px) {
+    :root{
+        --navbar-height: 110px;
+        --vertical-padding: 12rem;
+        --container-margin: 20rem;
+    }
+}
