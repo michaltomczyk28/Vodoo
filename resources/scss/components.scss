@@ -48,7 +48,7 @@
 
 
     .nav-wrapper{
-        height: 75px;
+        height: var(--navbar-height);
 
         display: flex;
         justify-content: space-between;
@@ -67,7 +67,7 @@
         position: sticky;
 
         background-color: white;
-        padding: 2rem 0 1rem;
+        padding: 2rem 0 2rem;
 
         width: 100%;
         bottom: 0;
@@ -75,7 +75,11 @@
 }
 
 @media (min-width: 576px) {
-
+    .task-list{
+        .task-new{
+            padding: 2rem 0 3rem;
+        }
+    }
 }
 
 @media (min-width: 768px) {
@@ -85,11 +89,16 @@
 @media (min-width: 992px) {
     .main-nav{
         .nav-wrapper{
-            height: 90px;
+            //height: 90px;
 
             .logo{
                 height: 45px;
             }
+        }
+    }
+    .task-list{
+        .task-new{
+            padding: 3rem 0 4rem;
         }
     }
 }
@@ -101,7 +110,7 @@
 @media (min-width: 1400px) {
     .main-nav{
         .nav-wrapper{
-            height: 100px;
+            //height: 100px;
 
             .logo{
                 height: 50px;
@@ -117,7 +126,7 @@
 @media (min-width: 1920px) {
     .main-nav{
         .nav-wrapper{
-            height: 110px;
+            //height: 110px;
 
             .logo{
                 height: 55px;

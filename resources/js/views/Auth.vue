@@ -6,11 +6,11 @@
     <Navbar />
 
     <div class="main-wrapper auth-wrapper">
-        <div class="left-beam standard-padding">
+        <div class="left-beam">
             <AuthForm/>
         </div>
 
-        <div class="right-beam bigger-padding">
+        <div class="right-beam">
             <div class="container">
                 <div class="content">
                     Unlock <br>

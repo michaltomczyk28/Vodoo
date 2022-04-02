@@ -143,15 +143,18 @@
     box-sizing: border-box !important;
 }
 
-html{
+:root{
     font-size: 62.5%;
-
 
     --main: #E84855;
     --hover: #ea5a66;
     --black: #000;
 
     --hover-content: '';
+    --navbar-height: 75px;
+
+    --vertical-padding: 6rem;
+    --container-margin: 3rem;
 }
 
 body{
@@ -169,7 +172,7 @@ body{
 }
 
 .container{
-    margin: 0 3rem;
+    margin: 0 var(--container-margin);
 }
 
 
@@ -179,61 +182,94 @@ body{
 
     flex-grow: 1;
 
+    /** scroll */
+    max-height: calc(100vh - var(--navbar-height));
+    overflow-y: hidden;
+
+    .right-beam, .left-beam{
+        overflow-y: auto;
+
+        &::-webkit-scrollbar-track{
+            -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.1);
+            background-color: #f3f3f3;
+        }
+        &::-webkit-scrollbar{
+            width: 4px;
+            background-color: #f3f3f3;
+        }
+        &::-webkit-scrollbar-thumb{
+            background-color: #333333;
+            border-radius: 10px;
+        }
+    }
+
     .right-beam{
         display: none;
         background-color: var(--main);
 
-        //text-align: right;
+        color: #fff;
         flex-shrink: 0;
-
-        .content{
-            text-transform: uppercase;
-            letter-spacing: 0.04em;
-            line-height: 1.35;
-
-            color: #fff;
-        }
+        padding: var(--vertical-padding) 0;
     }
 
     .left-beam{
         flex-basis: 100%;
         flex-shrink: 0;
+
+        padding: var(--vertical-padding) 0;
     }
 }
 
 .auth-wrapper{
     .left-beam{
-        max-width: 550px;
+        .form-wrapper{
+            max-width: 550px;
+            margin: auto;
+        }
     }
 
     .right-beam{
         text-align: right;
+
+        .content{
+            padding-top: 2rem;
+
+            text-transform: uppercase;
+            letter-spacing: 0.04em;
+            line-height: 1.35;
+        }
     }
 }
 
-.standard-padding{
-    padding: 6rem 0;
-}
+.home-wrapper{
+    .left-beam{
+        padding-bottom: 0;
+    }
 
-.bigger-padding{
-    padding: 6rem 0;
+    .right-beam{
+        .side-menu{
+            margin: 0 calc(var(--container-margin) / 2);
+        }
+    }
 }
 
 @media (min-width: 576px) {
-    .container{
-        margin: 0 4rem;
+    :root{
+        --container-margin: 4rem;
     }
 }
 
 @media (min-width: 768px) {
-    .container{
-        margin: 0 6rem;
+    :root{
+        --container-margin: 6rem;
     }
 }
 
 @media (min-width: 992px) {
-    .container{
-        margin: 0 8rem;
+    :root{
+        --navbar-height: 90px;
+        --vertical-padding: 8rem;
+        --container-margin: 8rem;
     }
 
     .main-wrapper{
@@ -259,26 +295,18 @@ body{
 
     .home-wrapper{
         .left-beam{
-            flex-basis: 70%;
+            flex-basis: 60%;
         }
 
         .right-beam{
-            flex-basis: 30%;
+            flex-basis: 40%;
         }
-    }
-
-    .standard-padding{
-        padding: 8rem 0;
-    }
-
-    .bigger-padding{
-        padding: 10rem 0;
     }
 }
 
 @media (min-width: 1200px) {
-    .container{
-        margin: 0 10rem;
+    :root{
+        --container-margin: 10rem;
     }
 
     .auth-wrapper{
@@ -289,14 +317,28 @@ body{
         }
 
         .left-beam{
-            max-width: unset;
+            .form-wrapper{
+                max-width: unset;
+            }
+        }
+    }
+
+    .home-wrapper{
+        .left-beam{
+            flex-basis: 70%;
+        }
+
+        .right-beam{
+            flex-basis: 30%;
         }
     }
 }
 
 @media (min-width: 1400px) {
-    .container{
-        margin: 0 13rem;
+    :root{
+        --navbar-height: 100px;
+        --vertical-padding: 10rem;
+        --container-margin: 13rem;
     }
 
     .auth-wrapper{
@@ -306,19 +348,11 @@ body{
             }
         }
     }
-
-    .standard-padding{
-        padding: 10rem 0;
-    }
-
-    .bigger-padding{
-        padding: 12rem 0;
-    }
 }
 
 @media (min-width: 1680px) {
-    .container{
-        margin: 0 16rem;
+    :root{
+        --container-margin: 16rem;
     }
 
     .auth-wrapper{
@@ -328,19 +362,13 @@ body{
             }
         }
     }
-
-    .standard-padding{
-        padding: 12rem 0;
-    }
-
-    .bigger-padding{
-        padding: 14rem 0;
-    }
 }
 
 @media (min-width: 1920px) {
-    .container{
-        margin: 0 20rem;
+    :root{
+        --navbar-height: 110px;
+        --vertical-padding: 12rem;
+        --container-margin: 20rem;
     }
 
     .auth-wrapper{
@@ -349,13 +377,5 @@ body{
                 font-size: 7.5rem;
             }
         }
-    }
-
-    .standard-padding{
-        padding: 16rem 0;
-    }
-
-    .bigger-padding{
-        padding: 18rem 0;
     }
 }
