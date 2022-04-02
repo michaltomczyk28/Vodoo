@@ -5,5 +5,16 @@
 
 <template>
     <Navbar/>
-    <TaskList/>
+
+    <div class="main-wrapper home-wrapper">
+        <div class="left-beam standard-padding">
+            <TaskList />
+        </div>
+
+        <div class="right-beam standard-padding">
+            <div class="container">
+                Test
+            </div>
+        </div>
+    </div>
 </template>

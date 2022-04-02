@@ -140,7 +140,7 @@
 @import 'components';
 
 *, *::before, *::after{
-    box-sizing: border-box;
+    box-sizing: border-box !important;
 }
 
 html{
@@ -149,6 +149,9 @@ html{
 
     --main: #E84855;
     --hover: #ea5a66;
+    --black: #000;
+
+    --hover-content: '';
 }
 
 body{
@@ -170,18 +173,17 @@ body{
 }
 
 
-.auth-wrapper{
+.main-wrapper{
     display: flex;
     justify-content: center;
-    //height: 100%;
 
     flex-grow: 1;
 
-    .right-banner{
+    .right-beam{
         display: none;
         background-color: var(--main);
 
-        text-align: right;
+        //text-align: right;
         flex-shrink: 0;
 
         .content{
@@ -193,13 +195,28 @@ body{
         }
     }
 
-    .form-wrapper{
-        padding: 6rem 0;
-        max-width: 550px;
-
+    .left-beam{
         flex-basis: 100%;
         flex-shrink: 0;
     }
+}
+
+.auth-wrapper{
+    .left-beam{
+        max-width: 550px;
+    }
+
+    .right-beam{
+        text-align: right;
+    }
+}
+
+.standard-padding{
+    padding: 6rem 0;
+}
+
+.bigger-padding{
+    padding: 6rem 0;
 }
 
 @media (min-width: 576px) {
@@ -217,28 +234,45 @@ body{
 @media (min-width: 992px) {
     .container{
         margin: 0 8rem;
-        //max-width: 880px;
+    }
+
+    .main-wrapper{
+        justify-content: space-between;
+
+        .right-beam{
+            flex-basis: 50%;
+            display: block;
+        }
+
+        .left-beam{
+            flex-basis: 50%;
+        }
     }
 
     .auth-wrapper{
-        justify-content: space-between;
-
-        .right-banner{
-            flex-basis: 50%;
-            display: block;
-
-            padding: 10rem 0;
-
+        .right-beam{
             .content{
-                font-size: 5rem;
+                font-size: 4.5rem;
             }
         }
+    }
 
-        .form-wrapper{
-            flex-basis: 50%;
-
-            padding: 8rem 0;
+    .home-wrapper{
+        .left-beam{
+            flex-basis: 70%;
         }
+
+        .right-beam{
+            flex-basis: 30%;
+        }
+    }
+
+    .standard-padding{
+        padding: 8rem 0;
+    }
+
+    .bigger-padding{
+        padding: 10rem 0;
     }
 }
 
@@ -248,13 +282,13 @@ body{
     }
 
     .auth-wrapper{
-        .right-banner{
+        .right-beam{
             .content{
                 font-size: 5.5rem;
             }
         }
 
-        .form-wrapper{
+        .left-beam{
             max-width: unset;
         }
     }
@@ -266,16 +300,19 @@ body{
     }
 
     .auth-wrapper{
-        .right-banner{
-            padding: 12rem 0;
+        .right-beam{
             .content{
                 font-size: 6rem;
             }
         }
+    }
 
-        .form-wrapper{
-            padding: 10rem 0;
-        }
+    .standard-padding{
+        padding: 10rem 0;
+    }
+
+    .bigger-padding{
+        padding: 12rem 0;
     }
 }
 
@@ -285,16 +322,19 @@ body{
     }
 
     .auth-wrapper{
-        .right-banner{
-            padding: 14rem 0;
+        .right-beam{
             .content{
                 font-size: 7rem;
             }
         }
+    }
 
-        .form-wrapper{
-            padding: 12rem 0;
-        }
+    .standard-padding{
+        padding: 12rem 0;
+    }
+
+    .bigger-padding{
+        padding: 14rem 0;
     }
 }
 
@@ -304,15 +344,18 @@ body{
     }
 
     .auth-wrapper{
-        .right-banner{
-            padding: 18rem 0;
+        .right-beam{
             .content{
                 font-size: 7.5rem;
             }
         }
+    }
 
-        .form-wrapper{
-            padding: 16rem 0;
-        }
+    .standard-padding{
+        padding: 16rem 0;
+    }
+
+    .bigger-padding{
+        padding: 18rem 0;
     }
 }

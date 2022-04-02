@@ -52,6 +52,42 @@
   transform-origin: 0 0;
 }
 
+.task {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 3.5rem;
+}
+.task .task-left {
+  display: flex;
+}
+.task .task-right .icon-button {
+  color: var(--black);
+}
+.task .task-right .icon-button:hover {
+  color: var(--main);
+}
+.task .task-checkbox {
+  -webkit-appearance: none;
+     -moz-appearance: none;
+          appearance: none;
+  font: inherit;
+  border: 1px solid black;
+  border-radius: 50%;
+  width: 20px;
+  height: 20px;
+  margin: 0;
+  margin-right: 1.5rem;
+}
+.task .task-checkbox:checked::before {
+  content: "";
+  background-image: url("/images/check.svg");
+  width: 100%;
+  height: 100%;
+  background-size: 20px 20px;
+  display: block;
+  transform: translate(10%, -20%);
+}
+
 .tab-wrapper {
   display: flex;
   flex-wrap: wrap;
@@ -79,6 +115,7 @@
   box-shadow: 0 1px 8px 0 #00000040;
   position: -webkit-sticky;
   position: sticky;
+  z-index: 1;
   top: 0;
   left: 0;
   width: 100%;
@@ -92,6 +129,18 @@
 }
 .main-nav .nav-wrapper .logo {
   height: 40px;
+}
+
+.task-list {
+  position: relative;
+}
+.task-list .task-new {
+  position: -webkit-sticky;
+  position: sticky;
+  background-color: white;
+  padding: 2rem 0 1rem;
+  width: 100%;
+  bottom: 0;
 }
 
 @media (min-width: 992px) {
@@ -119,13 +168,15 @@
   }
 }
 *, *::before, *::after {
-  box-sizing: border-box;
+  box-sizing: border-box !important;
 }
 
 html {
   font-size: 62.5%;
   --main: #E84855;
   --hover: #ea5a66;
+  --black: #000;
+  --hover-content: "";
 }
 
 body {
@@ -145,28 +196,40 @@ body {
   margin: 0 3rem;
 }
 
-.auth-wrapper {
+.main-wrapper {
   display: flex;
   justify-content: center;
   flex-grow: 1;
 }
-.auth-wrapper .right-banner {
+.main-wrapper .right-beam {
   display: none;
   background-color: var(--main);
-  text-align: right;
   flex-shrink: 0;
 }
-.auth-wrapper .right-banner .content {
+.main-wrapper .right-beam .content {
   text-transform: uppercase;
   letter-spacing: 0.04em;
   line-height: 1.35;
   color: #fff;
 }
-.auth-wrapper .form-wrapper {
-  padding: 6rem 0;
-  max-width: 550px;
+.main-wrapper .left-beam {
   flex-basis: 100%;
   flex-shrink: 0;
+}
+
+.auth-wrapper .left-beam {
+  max-width: 550px;
+}
+.auth-wrapper .right-beam {
+  text-align: right;
+}
+
+.standard-padding {
+  padding: 6rem 0;
+}
+
+.bigger-padding {
+  padding: 6rem 0;
 }
 
 @media (min-width: 576px) {
@@ -184,20 +247,34 @@ body {
     margin: 0 8rem;
   }
 
-  .auth-wrapper {
+  .main-wrapper {
     justify-content: space-between;
   }
-  .auth-wrapper .right-banner {
+  .main-wrapper .right-beam {
     flex-basis: 50%;
     display: block;
-    padding: 10rem 0;
   }
-  .auth-wrapper .right-banner .content {
-    font-size: 5rem;
-  }
-  .auth-wrapper .form-wrapper {
+  .main-wrapper .left-beam {
     flex-basis: 50%;
+  }
+
+  .auth-wrapper .right-beam .content {
+    font-size: 4.5rem;
+  }
+
+  .home-wrapper .left-beam {
+    flex-basis: 70%;
+  }
+  .home-wrapper .right-beam {
+    flex-basis: 30%;
+  }
+
+  .standard-padding {
     padding: 8rem 0;
+  }
+
+  .bigger-padding {
+    padding: 10rem 0;
   }
 }
 @media (min-width: 1200px) {
@@ -205,10 +282,10 @@ body {
     margin: 0 10rem;
   }
 
-  .auth-wrapper .right-banner .content {
+  .auth-wrapper .right-beam .content {
     font-size: 5.5rem;
   }
-  .auth-wrapper .form-wrapper {
+  .auth-wrapper .left-beam {
     max-width: unset;
   }
 }
@@ -217,14 +294,16 @@ body {
     margin: 0 13rem;
   }
 
-  .auth-wrapper .right-banner {
-    padding: 12rem 0;
-  }
-  .auth-wrapper .right-banner .content {
+  .auth-wrapper .right-beam .content {
     font-size: 6rem;
   }
-  .auth-wrapper .form-wrapper {
+
+  .standard-padding {
     padding: 10rem 0;
+  }
+
+  .bigger-padding {
+    padding: 12rem 0;
   }
 }
 @media (min-width: 1680px) {
@@ -232,14 +311,16 @@ body {
     margin: 0 16rem;
   }
 
-  .auth-wrapper .right-banner {
-    padding: 14rem 0;
-  }
-  .auth-wrapper .right-banner .content {
+  .auth-wrapper .right-beam .content {
     font-size: 7rem;
   }
-  .auth-wrapper .form-wrapper {
+
+  .standard-padding {
     padding: 12rem 0;
+  }
+
+  .bigger-padding {
+    padding: 14rem 0;
   }
 }
 @media (min-width: 1920px) {
@@ -247,13 +328,15 @@ body {
     margin: 0 20rem;
   }
 
-  .auth-wrapper .right-banner {
-    padding: 18rem 0;
-  }
-  .auth-wrapper .right-banner .content {
+  .auth-wrapper .right-beam .content {
     font-size: 7.5rem;
   }
-  .auth-wrapper .form-wrapper {
+
+  .standard-padding {
     padding: 16rem 0;
+  }
+
+  .bigger-padding {
+    padding: 18rem 0;
   }
 }

@@ -1,5 +1,7 @@
 <script setup>
     import TaskListItem from './TaskListItem'
+    import InputField from '../InputField'
+
     import {useStore} from 'vuex';
     import {ref, onMounted, computed} from 'vue';
 
@@ -23,15 +25,12 @@
 </script>
 
 <template>
-    <div class="container">
-        <div class="task-list">
+    <div class="task-list">
+        <div class="container">
             <TaskListItem v-for="task in tasks" :task="task" />
-        </div>
-
-        <div class="input-field col s6">
-            <input id="task_name" type="text" v-model="taskName" @keyup.enter="addTask">
-            <label for="task_name">Dodaj zadanie</label>
+            <div class="task-new">
+                <InputField label="New task" v-model="taskName" @keyup.enter="addTask"/>
+            </div>
         </div>
     </div>
-
 </template>

@@ -5,9 +5,12 @@
 <template>
     <Navbar />
 
-    <div class="auth-wrapper">
-        <AuthForm/>
-        <div class="right-banner">
+    <div class="main-wrapper auth-wrapper">
+        <div class="left-beam standard-padding">
+            <AuthForm/>
+        </div>
+
+        <div class="right-beam bigger-padding">
             <div class="container">
                 <div class="content">
                     Unlock <br>

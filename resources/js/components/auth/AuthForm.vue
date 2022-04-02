@@ -12,7 +12,7 @@
 </script>
 
 <template>
-    <div class="form-wrapper">
+    <div class="form-wrapper standard-padding">
         <div class="container">
             <div class="tab-wrapper">
                 <Button @click="changeTab(0)" :active="activeTab === 0" :outline="activeTab !== 0">Log in</Button>
