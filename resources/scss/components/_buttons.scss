@@ -35,6 +35,68 @@
     }
 }
 
+.hamburger-btn{
+    border: none;
+    background: inherit;
+
+    padding: 1rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+
+    .inner-bar{
+        width: 30px;
+        height: 3px;
+        background-color: var(--black);
+        display: inline-block;
+
+        margin: 1rem 0;
+
+        position: relative;
+
+        &::before, &::after{
+            position: absolute;
+            content: '';
+            width: 30px;
+            height: 3px;
+            background-color: var(--black);
+
+            left: 0;
+
+            transition: transform .15s ease-in-out;
+        }
+
+        &::before{
+            top: -1rem;
+        }
+
+        &::after{
+            top: 1rem;
+        }
+
+
+    }
+
+    &.expanded{
+        .inner-bar{
+            visibility: hidden;
+
+            &::before, &::after{
+                visibility: visible;
+            }
+
+            &::before{
+                transform: translateY(1rem) rotate(45deg);
+            }
+
+            &::after{
+                transform: translateY(-1rem) rotate(-45deg);
+            }
+        }
+    }
+}
+
 .tab-wrapper{
     display: flex;
     flex-wrap: wrap;

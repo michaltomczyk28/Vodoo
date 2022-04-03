@@ -1,6 +1,6 @@
 <script setup>
     import AuthForm from '../components/auth/AuthForm'
-    import Navbar from '../components/Navbar'
+    import Navbar from '../components/navigation/Navbar'
 </script>
 <template>
     <Navbar />

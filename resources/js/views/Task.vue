@@ -1,5 +1,5 @@
 <script setup>
-    import Navbar from "../components/Navbar";
+    import Navbar from "../components/navigation/Navbar";
     import Editor from '../components/Editor';
     import {useStore} from 'vuex';
     import {onMounted, ref} from 'vue';
