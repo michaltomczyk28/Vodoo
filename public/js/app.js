@@ -31140,7 +31140,7 @@ var _hoisted_2 = {
   "class": "left-beam"
 };
 
-var _hoisted_3 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createStaticVNode)("<div class=\"right-beam\"><div class=\"side-menu\"><ul class=\"special-list\"><li>Today</li><li>This week</li><li>History</li></ul><div class=\"folders\"><h3>Your folders</h3><ul class=\"folder-list\"><li>Folder 1</li><li>Folder 2</li><li>Very important folder</li></ul></div></div></div>", 1);
+var _hoisted_3 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createStaticVNode)("<div class=\"right-beam\"><div class=\"side-menu\"><ul class=\"special-list\"><li class=\"list-item\">Today</li><li class=\"list-item\">This week</li><li class=\"list-item\">History</li></ul><div class=\"folders\"><h3>Your folders</h3><ul class=\"folder-list\"><li class=\"list-item\">Folder 1</li><li class=\"list-item\">Folder 2</li><li class=\"list-item\">Very important folder</li></ul></div></div></div>", 1);
 
 function render(_ctx, _cache, $props, $setup, $data, $options) {
   return (0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)(vue__WEBPACK_IMPORTED_MODULE_0__.Fragment, null, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)($setup["Navbar"]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_1, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_2, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)($setup["TaskList"])]), _hoisted_3])], 64

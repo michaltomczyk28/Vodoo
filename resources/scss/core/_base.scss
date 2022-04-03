@@ -53,6 +53,10 @@ body{
         --vertical-padding: 8rem;
         --container-margin: 8rem;
     }
+
+    body{
+        font-size: 1.7rem;
+    }
 }
 
 @media (min-width: 1200px) {
@@ -72,6 +76,10 @@ body{
 @media (min-width: 1680px) {
     :root{
         --container-margin: 16rem;
+    }
+
+    body{
+        font-size: 1.8rem;
     }
 }
 

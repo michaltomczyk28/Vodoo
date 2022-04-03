@@ -14,16 +14,16 @@
         <div class="right-beam">
             <div class="side-menu">
                 <ul class="special-list">
-                    <li>Today</li>
-                    <li>This week</li>
-                    <li>History</li>
+                    <li class="list-item">Today</li>
+                    <li class="list-item">This week</li>
+                    <li class="list-item">History</li>
                 </ul>
                 <div class="folders">
                     <h3>Your folders</h3>
                     <ul class="folder-list">
-                        <li>Folder 1</li>
-                        <li>Folder 2</li>
-                        <li>Very important folder</li>
+                        <li class="list-item">Folder 1</li>
+                        <li class="list-item">Folder 2</li>
+                        <li class="list-item">Very important folder</li>
                     </ul>
                 </div>
             </div>

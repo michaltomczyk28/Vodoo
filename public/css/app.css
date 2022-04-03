@@ -46,6 +46,10 @@ body {
     --vertical-padding: 8rem;
     --container-margin: 8rem;
   }
+
+  body {
+    font-size: 1.7rem;
+  }
 }
 @media (min-width: 1200px) {
   :root {
@@ -63,12 +67,27 @@ body {
   :root {
     --container-margin: 16rem;
   }
+
+  body {
+    font-size: 1.8rem;
+  }
 }
 @media (min-width: 1920px) {
   :root {
     --navbar-height: 110px;
     --vertical-padding: 12rem;
     --container-margin: 20rem;
+  }
+}
+h3 {
+  font-size: 1.8rem;
+  margin: 0 0 3.5rem;
+}
+
+@media (min-width: 1680px) {
+  h3 {
+    font-size: 2.1rem;
+    margin-bottom: 4.5rem;
   }
 }
 .main-wrapper {
@@ -167,6 +186,14 @@ body {
 .home-wrapper .right-beam .side-menu {
   margin: 0 calc(var(--container-margin) / 2);
 }
+.home-wrapper .right-beam .side-menu .special-list, .home-wrapper .right-beam .side-menu .folder-list {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+.home-wrapper .right-beam .side-menu .list-item {
+  margin-bottom: 3rem;
+}
 
 @media (min-width: 992px) {
   .home-wrapper .left-beam {
@@ -174,6 +201,23 @@ body {
   }
   .home-wrapper .right-beam {
     flex-basis: 40%;
+  }
+  .home-wrapper .right-beam .side-menu .folders {
+    display: inline-block;
+    width: 100%;
+    padding-top: 3.5rem;
+    margin-top: 3.5rem;
+    position: relative;
+  }
+  .home-wrapper .right-beam .side-menu .folders::before {
+    content: "";
+    width: 80%;
+    border-top: 1px solid #fff;
+    top: 0;
+    position: absolute;
+  }
+  .home-wrapper .right-beam .side-menu .list-item {
+    margin-bottom: 4.5rem;
   }
 }
 @media (min-width: 1200px) {
@@ -233,6 +277,7 @@ body {
 }
 .task .task-left {
   display: flex;
+  padding-left: 2px;
 }
 .task .task-right .icon-button {
   color: var(--black);
