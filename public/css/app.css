@@ -226,6 +226,9 @@ h3 {
 .main-nav .nav-wrapper .logo {
   height: 40px;
 }
+.main-nav .buttons {
+  display: none;
+}
 .main-nav .mobile-menu {
   display: none;
 }
@@ -241,6 +244,9 @@ h3 {
   width: 100%;
   background: #fff;
   padding: 5rem 0;
+}
+.main-nav.expanded .mobile-menu .mobile-buttons {
+  margin-top: 4rem;
 }
 
 .list-menu .special-list, .list-menu .folder-list {
@@ -272,6 +278,9 @@ h3 {
   }
   .main-nav .nav-wrapper .hamburger-btn {
     display: none;
+  }
+  .main-nav .nav-wrapper .buttons {
+    display: block;
   }
 
   .list-menu .folders::before {

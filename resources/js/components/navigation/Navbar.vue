@@ -1,6 +1,7 @@
 <script setup>
     import ListMenu from './ListMenu'
     import HamburgerBtn from './HamburgerBtn'
+    import Button from '../Button'
 
     import {useStore} from 'vuex';
     import {useRouter} from 'vue-router'
@@ -28,23 +29,21 @@
                     <img src="/images/logo.png" alt="" class="logo">
                 </router-link>
 
-<!--                <ul>-->
-<!--                    <li><a href="#" @click.prevent="logout">Logout</a></li>-->
-<!--                </ul>-->
-
                 <template v-if="isLoggedIn">
-<!--                    <ListMenu />-->
                     <HamburgerBtn v-model="expanded" />
+                    <div class="buttons">
+                        <Button filled @click="logout">Logout</Button>
+                    </div>
                 </template>
             </div>
-
-
         </div>
         <div class="mobile-menu" v-if="isLoggedIn">
             <div class="container">
                 <ListMenu />
+                <div class="mobile-buttons">
+                    <Button filled @click="logout">Logout</Button>
+                </div>
             </div>
-
         </div>
     </nav>
 </template>

@@ -29953,9 +29953,10 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var _ListMenu__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./ListMenu */ "./resources/js/components/navigation/ListMenu.vue");
 /* harmony import */ var _HamburgerBtn__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./HamburgerBtn */ "./resources/js/components/navigation/HamburgerBtn.vue");
-/* harmony import */ var vuex__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! vuex */ "./node_modules/vuex/dist/vuex.esm-bundler.js");
-/* harmony import */ var vue_router__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! vue-router */ "./node_modules/vue-router/dist/vue-router.esm-bundler.js");
-/* harmony import */ var vue__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! vue */ "./node_modules/vue/dist/vue.esm-bundler.js");
+/* harmony import */ var _Button__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../Button */ "./resources/js/components/Button.vue");
+/* harmony import */ var vuex__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! vuex */ "./node_modules/vuex/dist/vuex.esm-bundler.js");
+/* harmony import */ var vue_router__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! vue-router */ "./node_modules/vue-router/dist/vue-router.esm-bundler.js");
+/* harmony import */ var vue__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! vue */ "./node_modules/vue/dist/vue.esm-bundler.js");
 
 
 function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) { try { var info = gen[key](arg); var value = info.value; } catch (error) { reject(error); return; } if (info.done) { resolve(value); } else { Promise.resolve(value).then(_next, _throw); } }
@@ -29967,16 +29968,17 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
 
 
 
+
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   setup: function setup(__props, _ref) {
     var expose = _ref.expose;
     expose();
-    var store = (0,vuex__WEBPACK_IMPORTED_MODULE_4__.useStore)();
-    var router = (0,vue_router__WEBPACK_IMPORTED_MODULE_5__.useRouter)();
-    var isLoggedIn = (0,vue__WEBPACK_IMPORTED_MODULE_3__.computed)(function () {
+    var store = (0,vuex__WEBPACK_IMPORTED_MODULE_5__.useStore)();
+    var router = (0,vue_router__WEBPACK_IMPORTED_MODULE_6__.useRouter)();
+    var isLoggedIn = (0,vue__WEBPACK_IMPORTED_MODULE_4__.computed)(function () {
       return store.getters['auth/isLoggedIn'];
     });
-    var expanded = (0,vue__WEBPACK_IMPORTED_MODULE_3__.ref)(false);
+    var expanded = (0,vue__WEBPACK_IMPORTED_MODULE_4__.ref)(false);
 
     function logout() {
       return _logout.apply(this, arguments);
@@ -30013,10 +30015,11 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
       logout: logout,
       ListMenu: _ListMenu__WEBPACK_IMPORTED_MODULE_1__["default"],
       HamburgerBtn: _HamburgerBtn__WEBPACK_IMPORTED_MODULE_2__["default"],
-      useStore: vuex__WEBPACK_IMPORTED_MODULE_4__.useStore,
-      useRouter: vue_router__WEBPACK_IMPORTED_MODULE_5__.useRouter,
-      computed: vue__WEBPACK_IMPORTED_MODULE_3__.computed,
-      ref: vue__WEBPACK_IMPORTED_MODULE_3__.ref
+      Button: _Button__WEBPACK_IMPORTED_MODULE_3__["default"],
+      useStore: vuex__WEBPACK_IMPORTED_MODULE_5__.useStore,
+      useRouter: vue_router__WEBPACK_IMPORTED_MODULE_6__.useRouter,
+      computed: vue__WEBPACK_IMPORTED_MODULE_4__.computed,
+      ref: vue__WEBPACK_IMPORTED_MODULE_4__.ref
     };
     Object.defineProperty(__returned__, '__isScriptSetup', {
       enumerable: false,
@@ -31059,12 +31062,24 @@ var _hoisted_3 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementV
 );
 
 var _hoisted_4 = {
+  "class": "buttons"
+};
+
+var _hoisted_5 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createTextVNode)("Logout");
+
+var _hoisted_6 = {
   key: 0,
   "class": "mobile-menu"
 };
-var _hoisted_5 = {
+var _hoisted_7 = {
   "class": "container"
 };
+var _hoisted_8 = {
+  "class": "mobile-buttons"
+};
+
+var _hoisted_9 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createTextVNode)("Logout");
+
 function render(_ctx, _cache, $props, $setup, $data, $options) {
   var _component_router_link = (0,vue__WEBPACK_IMPORTED_MODULE_0__.resolveComponent)("router-link");
 
@@ -31083,18 +31098,38 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
     _: 1
     /* STABLE */
 
-  }), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("                <ul>"), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("                    <li><a href=\"#\" @click.prevent=\"logout\">Logout</a></li>"), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("                </ul>"), $setup.isLoggedIn ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)(vue__WEBPACK_IMPORTED_MODULE_0__.Fragment, {
+  }), $setup.isLoggedIn ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)(vue__WEBPACK_IMPORTED_MODULE_0__.Fragment, {
     key: 0
-  }, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("                    <ListMenu />"), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)($setup["HamburgerBtn"], {
+  }, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)($setup["HamburgerBtn"], {
     modelValue: $setup.expanded,
     "onUpdate:modelValue": _cache[0] || (_cache[0] = function ($event) {
       return $setup.expanded = $event;
     })
   }, null, 8
   /* PROPS */
-  , ["modelValue"])], 2112
-  /* STABLE_FRAGMENT, DEV_ROOT_FRAGMENT */
-  )) : (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("v-if", true)])]), $setup.isLoggedIn ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("div", _hoisted_4, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_5, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)($setup["ListMenu"])])])) : (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("v-if", true)], 2
+  , ["modelValue"]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_4, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)($setup["Button"], {
+    filled: "",
+    onClick: $setup.logout
+  }, {
+    "default": (0,vue__WEBPACK_IMPORTED_MODULE_0__.withCtx)(function () {
+      return [_hoisted_5];
+    }),
+    _: 1
+    /* STABLE */
+
+  })])], 64
+  /* STABLE_FRAGMENT */
+  )) : (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("v-if", true)])]), $setup.isLoggedIn ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("div", _hoisted_6, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_7, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)($setup["ListMenu"]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_8, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)($setup["Button"], {
+    filled: "",
+    onClick: $setup.logout
+  }, {
+    "default": (0,vue__WEBPACK_IMPORTED_MODULE_0__.withCtx)(function () {
+      return [_hoisted_9];
+    }),
+    _: 1
+    /* STABLE */
+
+  })])])])) : (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("v-if", true)], 2
   /* CLASS */
   );
 }
