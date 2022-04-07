@@ -10,7 +10,6 @@
     })
 
     function toggleTask(){
-        console.log('test')
         store.dispatch('task/toggleTask', props.task.id);
     }
 
@@ -21,13 +20,11 @@
 
 <template>
     <div class="task">
-<!--        <label>-->
-<!--            <input type="checkbox" class="filled-in" :checked="task.is_done" @change="toggleTask" />-->
-<!--            <span class="toggle" :class="{'done' : task.is_done}">{{ task.name }}</span>-->
-<!--        </label>-->
         <div class="task-left">
             <TaskListItemCheckbox :checked="task.is_done" @change="toggleTask" />
-            <div class="task-name">{{ task.name }}</div>
+            <router-link :to="{name: 'task', params: { taskId: task.id }}" class="task-name">
+                {{ task.name }}
+            </router-link>
         </div>
 
         <div class="task-right">
@@ -35,15 +32,5 @@
                 <span class="fa-solid fa-trash"></span>
             </a>
         </div>
-
-        <!--        <div>-->
-<!--            <router-link :to="{name: 'task', params: { taskId: task.id }}" class="icon-button">-->
-<!--                <span class="fa-solid fa-pen"></span>-->
-<!--            </router-link>-->
-<!--            <a href="#" class="icon-button remove" @click="removeTask">-->
-<!--                <span class="fa-solid fa-trash"></span>-->
-<!--            </a>-->
-<!--        </div>-->
-
     </div>
 </template>

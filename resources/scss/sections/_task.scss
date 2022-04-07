@@ -1,0 +1,44 @@
+.task-wrapper{
+    .buttons{
+        margin-top: 5rem;
+        display: flex;
+        flex-direction: column;
+        align-items: flex-end;
+
+        gap: 2rem;
+    }
+}
+
+@media (min-width: 576px) {
+}
+
+@media (min-width: 768px) {
+
+}
+
+@media (min-width: 992px) {
+    .task-wrapper{
+        .buttons{
+            margin-top: 7.5rem;
+            flex-direction: row;
+            justify-content: flex-end;
+
+            gap: 4rem;
+        }
+    }
+}
+
+@media (min-width: 1200px) {
+
+}
+
+@media (min-width: 1400px) {
+
+}
+
+@media (min-width: 1680px) {
+
+}
+
+@media (min-width: 1920px) {
+}

@@ -95,6 +95,11 @@ body {
     --container-margin: 20rem;
   }
 }
+h1 {
+  font-size: 2.4rem;
+  margin: 0 0 5rem;
+}
+
 h3 {
   font-size: 1.8rem;
   margin: 0 0 3.5rem;
@@ -184,7 +189,7 @@ h3 {
     font-size: 7.5rem;
   }
 }
-.home-wrapper .left-beam {
+.home-wrapper .left-beam.no-padding-bottom {
   padding-bottom: 0;
 }
 .home-wrapper .right-beam .list-menu {
@@ -307,24 +312,30 @@ h3 {
   justify-content: flex-end;
 }
 
-.task {
+.task-list {
+  position: relative;
+}
+.task-list .task {
   display: flex;
   justify-content: space-between;
   margin-bottom: 3.5rem;
 }
-.task .task-left {
+.task-list .task .task-left {
   display: flex;
   padding-left: 2px;
 }
-.task .task-right .icon-button {
+.task-list .task .task-left .task-name {
+  color: var(--black);
+  text-decoration: none;
+}
+.task-list .task .task-left .task-name:hover {
+  color: var(--hover);
+}
+.task-list .task .task-right .icon-button {
   color: var(--black);
 }
-.task .task-right .icon-button:hover {
+.task-list .task .task-right .icon-button:hover {
   color: var(--main);
-}
-
-.task-list {
-  position: relative;
 }
 .task-list .task-new {
   position: -webkit-sticky;
@@ -345,6 +356,22 @@ h3 {
     padding: 3rem 0 4rem;
   }
 }
+.task-wrapper .buttons {
+  margin-top: 5rem;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 2rem;
+}
+
+@media (min-width: 992px) {
+  .task-wrapper .buttons {
+    margin-top: 7.5rem;
+    flex-direction: row;
+    justify-content: flex-end;
+    gap: 4rem;
+  }
+}
 .btn {
   width: 135px;
   height: 40px;
@@ -353,6 +380,11 @@ h3 {
   font-family: inherit;
   font-weight: 500;
   font-size: 1.6rem;
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  text-decoration: none;
+  cursor: pointer;
 }
 .btn.btn-filled, .btn.btn-active {
   background-color: var(--main);

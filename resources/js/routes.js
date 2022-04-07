@@ -7,6 +7,7 @@ export default [
         path: '/',
         name: 'home',
         component: Home,
+        props: { component: 'task-list'},
         meta: {
             requiresAuth: true
         }
@@ -22,7 +23,8 @@ export default [
     {
         path: '/task/:taskId',
         name: 'task',
-        component: Task,
+        component: Home,
+        props: {component: 'task'},
         meta: {
             requiresAuth: true
         }

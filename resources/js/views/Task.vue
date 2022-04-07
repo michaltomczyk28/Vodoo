@@ -1,6 +1,7 @@
 <script setup>
     import Navbar from "../components/navigation/Navbar";
     import Editor from '../components/Editor';
+    import Button from '../components/Button'
     import {useStore} from 'vuex';
     import {onMounted, ref} from 'vue';
     import {useRoute, useRouter} from 'vue-router';
@@ -35,19 +36,27 @@
 </script>
 
 <template>
-    <Navbar/>
-    <div class="container" v-if="!loading">
-        <div class="section">
-            <h1 contenteditable @input="updateName">{{ task.name }}</h1>
-            <Editor v-model="task.description"/>
-            <button class="btn btn-large btn-submit waves-effect waves-light orange" @click.prevent="updateTask">
-                Zapisz
-            </button>
-            <router-link to="/" class="btn btn-large btn-submit waves-effect waves-light orange lighten-3" style="margin-left: 1rem">
-                Cofnij
-            </router-link>
+<!--    <Navbar/>-->
+    <div class="task-wrapper">
+        <div class="container" v-if="!loading">
+            <div class="section">
+                <h1 contenteditable @input="updateName">{{ task.name }}</h1>
+                <Editor v-model="task.description"/>
+                <!--            <button class="btn btn-large btn-submit waves-effect waves-light orange" @click.prevent="updateTask">-->
+                <!--                Zapisz-->
+                <!--            </button>-->
+                <!--            <router-link to="/" class="btn btn-large btn-submit waves-effect waves-light orange lighten-3" style="margin-left: 1rem">-->
+                <!--                Cofnij-->
+                <!--            </router-link>-->
+                <div class="buttons">
+                    <Button type="link" to="/" outline>Return</Button>
+                    <Button filled @click="updateTask">Save</Button>
+                </div>
+
+            </div>
         </div>
     </div>
+
 </template>
 
 

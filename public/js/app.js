@@ -29482,14 +29482,31 @@ __webpack_require__.r(__webpack_exports__);
   props: {
     outline: Boolean,
     filled: Boolean,
-    active: Boolean
+    active: Boolean,
+    type: {
+      type: String,
+      validator: function validator(val) {
+        return ['button', 'link'].includes(val);
+      },
+      "default": 'button'
+    },
+    to: [String, Object]
   },
+  emits: ['click'],
   setup: function setup(__props, _ref) {
-    var expose = _ref.expose;
+    var expose = _ref.expose,
+        emit = _ref.emit;
     expose();
     var props = __props;
+
+    function handleClick() {
+      emit('click');
+    }
+
     var __returned__ = {
-      props: props
+      props: props,
+      emit: emit,
+      handleClick: handleClick
     };
     Object.defineProperty(__returned__, '__isScriptSetup', {
       enumerable: false,
@@ -30125,7 +30142,6 @@ __webpack_require__.r(__webpack_exports__);
     var store = (0,vuex__WEBPACK_IMPORTED_MODULE_2__.useStore)();
 
     function toggleTask() {
-      console.log('test');
       store.dispatch('task/toggleTask', props.task.id);
     }
 
@@ -30243,18 +30259,26 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ });
 /* harmony import */ var _components_navigation_Navbar__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../components/navigation/Navbar */ "./resources/js/components/navigation/Navbar.vue");
 /* harmony import */ var _components_task_list_TaskList__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../components/task-list/TaskList */ "./resources/js/components/task-list/TaskList.vue");
-/* harmony import */ var _components_navigation_ListMenu__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../components/navigation/ListMenu */ "./resources/js/components/navigation/ListMenu.vue");
+/* harmony import */ var _Task__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./Task */ "./resources/js/views/Task.vue");
+/* harmony import */ var _components_navigation_ListMenu__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../components/navigation/ListMenu */ "./resources/js/components/navigation/ListMenu.vue");
+
 
 
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
+  props: {
+    component: String
+  },
   setup: function setup(__props, _ref) {
     var expose = _ref.expose;
     expose();
+    var props = __props;
     var __returned__ = {
+      props: props,
       Navbar: _components_navigation_Navbar__WEBPACK_IMPORTED_MODULE_0__["default"],
       TaskList: _components_task_list_TaskList__WEBPACK_IMPORTED_MODULE_1__["default"],
-      ListMenu: _components_navigation_ListMenu__WEBPACK_IMPORTED_MODULE_2__["default"]
+      Task: _Task__WEBPACK_IMPORTED_MODULE_2__["default"],
+      ListMenu: _components_navigation_ListMenu__WEBPACK_IMPORTED_MODULE_3__["default"]
     };
     Object.defineProperty(__returned__, '__isScriptSetup', {
       enumerable: false,
@@ -30281,9 +30305,10 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var _components_navigation_Navbar__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../components/navigation/Navbar */ "./resources/js/components/navigation/Navbar.vue");
 /* harmony import */ var _components_Editor__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../components/Editor */ "./resources/js/components/Editor.vue");
-/* harmony import */ var vuex__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! vuex */ "./node_modules/vuex/dist/vuex.esm-bundler.js");
-/* harmony import */ var vue__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! vue */ "./node_modules/vue/dist/vue.esm-bundler.js");
-/* harmony import */ var vue_router__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! vue-router */ "./node_modules/vue-router/dist/vue-router.esm-bundler.js");
+/* harmony import */ var _components_Button__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../components/Button */ "./resources/js/components/Button.vue");
+/* harmony import */ var vuex__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! vuex */ "./node_modules/vuex/dist/vuex.esm-bundler.js");
+/* harmony import */ var vue__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! vue */ "./node_modules/vue/dist/vue.esm-bundler.js");
+/* harmony import */ var vue_router__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! vue-router */ "./node_modules/vue-router/dist/vue-router.esm-bundler.js");
 
 
 function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) { try { var info = gen[key](arg); var value = info.value; } catch (error) { reject(error); return; } if (info.done) { resolve(value); } else { Promise.resolve(value).then(_next, _throw); } }
@@ -30295,21 +30320,22 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
 
 
 
+
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   setup: function setup(__props, _ref) {
     var expose = _ref.expose;
     expose();
-    var store = (0,vuex__WEBPACK_IMPORTED_MODULE_4__.useStore)();
-    var route = (0,vue_router__WEBPACK_IMPORTED_MODULE_5__.useRoute)();
-    var router = (0,vue_router__WEBPACK_IMPORTED_MODULE_5__.useRouter)();
-    var description = (0,vue__WEBPACK_IMPORTED_MODULE_3__.ref)('');
-    var task = (0,vue__WEBPACK_IMPORTED_MODULE_3__.ref)({
+    var store = (0,vuex__WEBPACK_IMPORTED_MODULE_5__.useStore)();
+    var route = (0,vue_router__WEBPACK_IMPORTED_MODULE_6__.useRoute)();
+    var router = (0,vue_router__WEBPACK_IMPORTED_MODULE_6__.useRouter)();
+    var description = (0,vue__WEBPACK_IMPORTED_MODULE_4__.ref)('');
+    var task = (0,vue__WEBPACK_IMPORTED_MODULE_4__.ref)({
       name: '',
       description: ''
     });
-    var editTitle = (0,vue__WEBPACK_IMPORTED_MODULE_3__.ref)(false);
-    var loading = (0,vue__WEBPACK_IMPORTED_MODULE_3__.ref)(true);
-    (0,vue__WEBPACK_IMPORTED_MODULE_3__.onMounted)( /*#__PURE__*/_asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().mark(function _callee() {
+    var editTitle = (0,vue__WEBPACK_IMPORTED_MODULE_4__.ref)(false);
+    var loading = (0,vue__WEBPACK_IMPORTED_MODULE_4__.ref)(true);
+    (0,vue__WEBPACK_IMPORTED_MODULE_4__.onMounted)( /*#__PURE__*/_asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().mark(function _callee() {
       return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().wrap(function _callee$(_context) {
         while (1) {
           switch (_context.prev = _context.next) {
@@ -30378,11 +30404,12 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
       updateName: updateName,
       Navbar: _components_navigation_Navbar__WEBPACK_IMPORTED_MODULE_1__["default"],
       Editor: _components_Editor__WEBPACK_IMPORTED_MODULE_2__["default"],
-      useStore: vuex__WEBPACK_IMPORTED_MODULE_4__.useStore,
-      onMounted: vue__WEBPACK_IMPORTED_MODULE_3__.onMounted,
-      ref: vue__WEBPACK_IMPORTED_MODULE_3__.ref,
-      useRoute: vue_router__WEBPACK_IMPORTED_MODULE_5__.useRoute,
-      useRouter: vue_router__WEBPACK_IMPORTED_MODULE_5__.useRouter
+      Button: _components_Button__WEBPACK_IMPORTED_MODULE_3__["default"],
+      useStore: vuex__WEBPACK_IMPORTED_MODULE_5__.useStore,
+      onMounted: vue__WEBPACK_IMPORTED_MODULE_4__.onMounted,
+      ref: vue__WEBPACK_IMPORTED_MODULE_4__.ref,
+      useRoute: vue_router__WEBPACK_IMPORTED_MODULE_6__.useRoute,
+      useRouter: vue_router__WEBPACK_IMPORTED_MODULE_6__.useRouter
     };
     Object.defineProperty(__returned__, '__isScriptSetup', {
       enumerable: false,
@@ -30429,14 +30456,37 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var vue__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! vue */ "./node_modules/vue/dist/vue.esm-bundler.js");
 
 function render(_ctx, _cache, $props, $setup, $data, $options) {
-  return (0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("button", {
+  var _component_router_link = (0,vue__WEBPACK_IMPORTED_MODULE_0__.resolveComponent)("router-link");
+
+  return (0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)(vue__WEBPACK_IMPORTED_MODULE_0__.Fragment, null, [$props.type === 'button' ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("button", {
+    key: 0,
     "class": (0,vue__WEBPACK_IMPORTED_MODULE_0__.normalizeClass)(["btn", {
       'btn-outline': $props.outline,
       'btn-filled': $props.filled,
       'btn-active': $props.active
-    }])
+    }]),
+    onClick: $setup.handleClick
   }, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.renderSlot)(_ctx.$slots, "default")], 2
   /* CLASS */
+  )) : (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("v-if", true), $props.type === 'link' ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createBlock)(_component_router_link, {
+    key: 1,
+    "class": (0,vue__WEBPACK_IMPORTED_MODULE_0__.normalizeClass)(["btn", {
+      'btn-outline': $props.outline,
+      'btn-filled': $props.filled,
+      'btn-active': $props.active
+    }]),
+    to: $props.to
+  }, {
+    "default": (0,vue__WEBPACK_IMPORTED_MODULE_0__.withCtx)(function () {
+      return [(0,vue__WEBPACK_IMPORTED_MODULE_0__.renderSlot)(_ctx.$slots, "default")];
+    }),
+    _: 3
+    /* FORWARDED */
+
+  }, 8
+  /* PROPS */
+  , ["class", "to"])) : (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("v-if", true)], 64
+  /* STABLE_FRAGMENT */
   );
 }
 
@@ -31200,32 +31250,48 @@ var _hoisted_1 = {
 var _hoisted_2 = {
   "class": "task-left"
 };
-var _hoisted_3 = {
-  "class": "task-name"
-};
 
-var _hoisted_4 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("span", {
+var _hoisted_3 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("span", {
   "class": "fa-solid fa-trash"
 }, null, -1
 /* HOISTED */
 );
 
-var _hoisted_5 = [_hoisted_4];
+var _hoisted_4 = [_hoisted_3];
 function render(_ctx, _cache, $props, $setup, $data, $options) {
-  return (0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("div", _hoisted_1, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("        <label>"), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("            <input type=\"checkbox\" class=\"filled-in\" :checked=\"task.is_done\" @change=\"toggleTask\" />"), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("            <span class=\"toggle\" :class=\"{'done' : task.is_done}\">{{ task.name }}</span>"), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("        </label>"), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_2, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)($setup["TaskListItemCheckbox"], {
+  var _component_router_link = (0,vue__WEBPACK_IMPORTED_MODULE_0__.resolveComponent)("router-link");
+
+  return (0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("div", _hoisted_1, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_2, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)($setup["TaskListItemCheckbox"], {
     checked: $props.task.is_done,
     onChange: $setup.toggleTask
   }, null, 8
   /* PROPS */
-  , ["checked"]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_3, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)($props.task.name), 1
-  /* TEXT */
-  )]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
+  , ["checked"]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_router_link, {
+    to: {
+      name: 'task',
+      params: {
+        taskId: $props.task.id
+      }
+    },
+    "class": "task-name"
+  }, {
+    "default": (0,vue__WEBPACK_IMPORTED_MODULE_0__.withCtx)(function () {
+      return [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createTextVNode)((0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)($props.task.name), 1
+      /* TEXT */
+      )];
+    }),
+    _: 1
+    /* STABLE */
+
+  }, 8
+  /* PROPS */
+  , ["to"])]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
     "class": "task-right"
   }, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("a", {
     href: "#",
     "class": "icon-button remove",
     onClick: $setup.removeTask
-  }, _hoisted_5)]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("        <div>"), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("            <router-link :to=\"{name: 'task', params: { taskId: task.id }}\" class=\"icon-button\">"), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("                <span class=\"fa-solid fa-pen\"></span>"), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("            </router-link>"), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("            <a href=\"#\" class=\"icon-button remove\" @click=\"removeTask\">"), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("                <span class=\"fa-solid fa-trash\"></span>"), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("            </a>"), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("        </div>")]);
+  }, _hoisted_4)])]);
 }
 
 /***/ }),
@@ -31312,13 +31378,20 @@ var _hoisted_1 = {
   "class": "main-wrapper home-wrapper"
 };
 var _hoisted_2 = {
-  "class": "left-beam"
-};
-var _hoisted_3 = {
   "class": "right-beam"
 };
 function render(_ctx, _cache, $props, $setup, $data, $options) {
-  return (0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)(vue__WEBPACK_IMPORTED_MODULE_0__.Fragment, null, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)($setup["Navbar"]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_1, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_2, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)($setup["TaskList"])]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_3, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)($setup["ListMenu"])])])], 64
+  return (0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)(vue__WEBPACK_IMPORTED_MODULE_0__.Fragment, null, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)($setup["Navbar"]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_1, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
+    "class": (0,vue__WEBPACK_IMPORTED_MODULE_0__.normalizeClass)(["left-beam", {
+      'no-padding-bottom': $props.component === 'task-list'
+    }])
+  }, [$props.component === 'task-list' ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createBlock)($setup["TaskList"], {
+    key: 0
+  })) : $props.component === 'task' ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createBlock)($setup["Task"], {
+    key: 1
+  })) : (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("v-if", true)], 2
+  /* CLASS */
+  ), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_2, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)($setup["ListMenu"])])])], 64
   /* STABLE_FRAGMENT */
   );
 }
@@ -31339,20 +31412,25 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var vue__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! vue */ "./node_modules/vue/dist/vue.esm-bundler.js");
 
 var _hoisted_1 = {
+  "class": "task-wrapper"
+};
+var _hoisted_2 = {
   key: 0,
   "class": "container"
 };
-var _hoisted_2 = {
+var _hoisted_3 = {
   "class": "section"
 };
-var _hoisted_3 = ["onClick"];
+var _hoisted_4 = {
+  "class": "buttons"
+};
 
-var _hoisted_4 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createTextVNode)(" Cofnij ");
+var _hoisted_5 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createTextVNode)("Return");
+
+var _hoisted_6 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createTextVNode)("Save");
 
 function render(_ctx, _cache, $props, $setup, $data, $options) {
-  var _component_router_link = (0,vue__WEBPACK_IMPORTED_MODULE_0__.resolveComponent)("router-link");
-
-  return (0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)(vue__WEBPACK_IMPORTED_MODULE_0__.Fragment, null, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)($setup["Navbar"]), !$setup.loading ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("div", _hoisted_1, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_2, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("h1", {
+  return (0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)(vue__WEBPACK_IMPORTED_MODULE_0__.Fragment, null, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("    <Navbar/>"), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_1, [!$setup.loading ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("div", _hoisted_2, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_3, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("h1", {
     contenteditable: "",
     onInput: $setup.updateName
   }, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)($setup.task.name), 33
@@ -31364,26 +31442,29 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
     })
   }, null, 8
   /* PROPS */
-  , ["modelValue"]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("button", {
-    "class": "btn btn-large btn-submit waves-effect waves-light orange",
-    onClick: (0,vue__WEBPACK_IMPORTED_MODULE_0__.withModifiers)($setup.updateTask, ["prevent"])
-  }, " Zapisz ", 8
-  /* PROPS */
-  , _hoisted_3), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_router_link, {
+  , ["modelValue"]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("            <button class=\"btn btn-large btn-submit waves-effect waves-light orange\" @click.prevent=\"updateTask\">"), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("                Zapisz"), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("            </button>"), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("            <router-link to=\"/\" class=\"btn btn-large btn-submit waves-effect waves-light orange lighten-3\" style=\"margin-left: 1rem\">"), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("                Cofnij"), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("            </router-link>"), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_4, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)($setup["Button"], {
+    type: "link",
     to: "/",
-    "class": "btn btn-large btn-submit waves-effect waves-light orange lighten-3",
-    style: {
-      "margin-left": "1rem"
-    }
+    outline: ""
   }, {
     "default": (0,vue__WEBPACK_IMPORTED_MODULE_0__.withCtx)(function () {
-      return [_hoisted_4];
+      return [_hoisted_5];
     }),
     _: 1
     /* STABLE */
 
-  })])])) : (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("v-if", true)], 64
-  /* STABLE_FRAGMENT */
+  }), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)($setup["Button"], {
+    filled: "",
+    onClick: $setup.updateTask
+  }, {
+    "default": (0,vue__WEBPACK_IMPORTED_MODULE_0__.withCtx)(function () {
+      return [_hoisted_6];
+    }),
+    _: 1
+    /* STABLE */
+
+  })])])])) : (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("v-if", true)])], 2112
+  /* STABLE_FRAGMENT, DEV_ROOT_FRAGMENT */
   );
 }
 
@@ -31527,6 +31608,9 @@ __webpack_require__.r(__webpack_exports__);
   path: '/',
   name: 'home',
   component: _views_Home__WEBPACK_IMPORTED_MODULE_0__["default"],
+  props: {
+    component: 'task-list'
+  },
   meta: {
     requiresAuth: true
   }
@@ -31540,7 +31624,10 @@ __webpack_require__.r(__webpack_exports__);
 }, {
   path: '/task/:taskId',
   name: 'task',
-  component: _views_Task__WEBPACK_IMPORTED_MODULE_2__["default"],
+  component: _views_Home__WEBPACK_IMPORTED_MODULE_0__["default"],
+  props: {
+    component: 'task'
+  },
   meta: {
     requiresAuth: true
   }

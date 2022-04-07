@@ -1,27 +1,36 @@
-.task{
-    display: flex;
-    justify-content: space-between;
+.task-list{
+    position: relative;
 
-    margin-bottom: 3.5rem;
-
-    .task-left{
+    .task{
         display: flex;
-        padding-left: 2px;
-    }
+        justify-content: space-between;
 
-    .task-right{
-        .icon-button{
-            color: var(--black);
+        margin-bottom: 3.5rem;
 
-            &:hover{
-                color: var(--main);
+        .task-left{
+            display: flex;
+            padding-left: 2px;
+
+            .task-name{
+                color: var(--black);
+                text-decoration: none;
+
+                &:hover{
+                    color: var(--hover);
+                }
+            }
+        }
+
+        .task-right{
+            .icon-button{
+                color: var(--black);
+
+                &:hover{
+                    color: var(--main);
+                }
             }
         }
     }
-}
-
-.task-list{
-    position: relative;
 
     .task-new{
         position: sticky;
