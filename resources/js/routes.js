@@ -4,7 +4,7 @@ import Task from './views/Task'
 
 export default [
     {
-        path: '/',
+        path: '/:listName?',
         name: 'home',
         component: Home,
         props: { component: 'task-list'},

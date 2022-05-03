@@ -29955,6 +29955,46 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
+/***/ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./resources/js/components/navigation/ListMenu.vue?vue&type=script&setup=true&lang=js":
+/*!************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./resources/js/components/navigation/ListMenu.vue?vue&type=script&setup=true&lang=js ***!
+  \************************************************************************************************************************************************************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _constants__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../constants */ "./resources/js/constants.js");
+/* harmony import */ var vuex__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! vuex */ "./node_modules/vuex/dist/vuex.esm-bundler.js");
+/* harmony import */ var vue_router__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! vue-router */ "./node_modules/vue-router/dist/vue-router.esm-bundler.js");
+
+
+
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
+  setup: function setup(__props, _ref) {
+    var expose = _ref.expose;
+    expose();
+    var route = (0,vue_router__WEBPACK_IMPORTED_MODULE_1__.useRoute)();
+    var store = (0,vuex__WEBPACK_IMPORTED_MODULE_2__.useStore)();
+    var __returned__ = {
+      route: route,
+      store: store,
+      List: _constants__WEBPACK_IMPORTED_MODULE_0__.List,
+      useStore: vuex__WEBPACK_IMPORTED_MODULE_2__.useStore,
+      useRoute: vue_router__WEBPACK_IMPORTED_MODULE_1__.useRoute
+    };
+    Object.defineProperty(__returned__, '__isScriptSetup', {
+      enumerable: false,
+      value: true
+    });
+    return __returned__;
+  }
+});
+
+/***/ }),
+
 /***/ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./resources/js/components/navigation/Navbar.vue?vue&type=script&setup=true&lang=js":
 /*!**********************************************************************************************************************************************************************************************************************!*\
   !*** ./node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./resources/js/components/navigation/Navbar.vue?vue&type=script&setup=true&lang=js ***!
@@ -30059,10 +30099,22 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
-/* harmony import */ var _TaskListItem__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./TaskListItem */ "./resources/js/components/task-list/TaskListItem.vue");
-/* harmony import */ var _InputField__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../InputField */ "./resources/js/components/InputField.vue");
-/* harmony import */ var vuex__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! vuex */ "./node_modules/vuex/dist/vuex.esm-bundler.js");
-/* harmony import */ var vue__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! vue */ "./node_modules/vue/dist/vue.esm-bundler.js");
+/* harmony import */ var _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @babel/runtime/regenerator */ "./node_modules/@babel/runtime/regenerator/index.js");
+/* harmony import */ var _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _TaskListItem__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./TaskListItem */ "./resources/js/components/task-list/TaskListItem.vue");
+/* harmony import */ var _InputField__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../InputField */ "./resources/js/components/InputField.vue");
+/* harmony import */ var _constants__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../constants */ "./resources/js/constants.js");
+/* harmony import */ var vuex__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! vuex */ "./node_modules/vuex/dist/vuex.esm-bundler.js");
+/* harmony import */ var vue__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! vue */ "./node_modules/vue/dist/vue.esm-bundler.js");
+/* harmony import */ var vue_router__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! vue-router */ "./node_modules/vue-router/dist/vue-router.esm-bundler.js");
+
+
+function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) { try { var info = gen[key](arg); var value = info.value; } catch (error) { reject(error); return; } if (info.done) { resolve(value); } else { Promise.resolve(value).then(_next, _throw); } }
+
+function _asyncToGenerator(fn) { return function () { var self = this, args = arguments; return new Promise(function (resolve, reject) { var gen = fn.apply(self, args); function _next(value) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "next", value); } function _throw(err) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "throw", err); } _next(undefined); }); }; }
+
+
+
 
 
 
@@ -30071,11 +30123,18 @@ __webpack_require__.r(__webpack_exports__);
   setup: function setup(__props, _ref) {
     var expose = _ref.expose;
     expose();
-    var store = (0,vuex__WEBPACK_IMPORTED_MODULE_3__.useStore)();
-    var tasks = (0,vue__WEBPACK_IMPORTED_MODULE_2__.computed)(function () {
+    var route = (0,vue_router__WEBPACK_IMPORTED_MODULE_5__.useRoute)();
+    var store = (0,vuex__WEBPACK_IMPORTED_MODULE_6__.useStore)();
+    var tasks = (0,vue__WEBPACK_IMPORTED_MODULE_4__.computed)(function () {
       return store.getters['task/tasks'];
     });
-    var taskName = (0,vue__WEBPACK_IMPORTED_MODULE_2__.ref)('');
+    var currentList = (0,vue__WEBPACK_IMPORTED_MODULE_4__.computed)(function () {
+      return store.getters['task/currentList'];
+    });
+    var showNewTaskInput = (0,vue__WEBPACK_IMPORTED_MODULE_4__.computed)(function () {
+      return currentList.value !== _constants__WEBPACK_IMPORTED_MODULE_3__.List.HISTORY;
+    });
+    var taskName = (0,vue__WEBPACK_IMPORTED_MODULE_4__.ref)('');
 
     function addTask() {
       store.dispatch('task/createTask', {
@@ -30088,21 +30147,55 @@ __webpack_require__.r(__webpack_exports__);
       store.dispatch('task/toggleTask', id);
     }
 
-    (0,vue__WEBPACK_IMPORTED_MODULE_2__.onMounted)(function () {
-      store.dispatch('task/getTasksForAuthenticatedUser');
+    (0,vue__WEBPACK_IMPORTED_MODULE_4__.watch)(function () {
+      return route.params.listName;
+    }, /*#__PURE__*/function () {
+      var _ref2 = _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().mark(function _callee(newListName) {
+        return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().wrap(function _callee$(_context) {
+          while (1) {
+            switch (_context.prev = _context.next) {
+              case 0:
+                _context.next = 2;
+                return store.dispatch('task/changeCurrentList', newListName);
+
+              case 2:
+                _context.next = 4;
+                return store.dispatch('task/getTasks');
+
+              case 4:
+              case "end":
+                return _context.stop();
+            }
+          }
+        }, _callee);
+      }));
+
+      return function (_x) {
+        return _ref2.apply(this, arguments);
+      };
+    }());
+    (0,vue__WEBPACK_IMPORTED_MODULE_4__.onMounted)(function () {
+      store.dispatch('task/changeCurrentList', route.params.listName);
+      store.dispatch('task/getTasks');
     });
     var __returned__ = {
+      route: route,
       store: store,
       tasks: tasks,
+      currentList: currentList,
+      showNewTaskInput: showNewTaskInput,
       taskName: taskName,
       addTask: addTask,
       toggleTask: toggleTask,
-      TaskListItem: _TaskListItem__WEBPACK_IMPORTED_MODULE_0__["default"],
-      InputField: _InputField__WEBPACK_IMPORTED_MODULE_1__["default"],
-      useStore: vuex__WEBPACK_IMPORTED_MODULE_3__.useStore,
-      ref: vue__WEBPACK_IMPORTED_MODULE_2__.ref,
-      onMounted: vue__WEBPACK_IMPORTED_MODULE_2__.onMounted,
-      computed: vue__WEBPACK_IMPORTED_MODULE_2__.computed
+      TaskListItem: _TaskListItem__WEBPACK_IMPORTED_MODULE_1__["default"],
+      InputField: _InputField__WEBPACK_IMPORTED_MODULE_2__["default"],
+      List: _constants__WEBPACK_IMPORTED_MODULE_3__.List,
+      useStore: vuex__WEBPACK_IMPORTED_MODULE_6__.useStore,
+      ref: vue__WEBPACK_IMPORTED_MODULE_4__.ref,
+      onMounted: vue__WEBPACK_IMPORTED_MODULE_4__.onMounted,
+      computed: vue__WEBPACK_IMPORTED_MODULE_4__.computed,
+      watch: vue__WEBPACK_IMPORTED_MODULE_4__.watch,
+      useRoute: vue_router__WEBPACK_IMPORTED_MODULE_5__.useRoute
     };
     Object.defineProperty(__returned__, '__isScriptSetup', {
       enumerable: false,
@@ -30125,9 +30218,17 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
-/* harmony import */ var _TaskListItemCheckbox__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./TaskListItemCheckbox */ "./resources/js/components/task-list/TaskListItemCheckbox.vue");
-/* harmony import */ var vue__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! vue */ "./node_modules/vue/dist/vue.esm-bundler.js");
-/* harmony import */ var vuex__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! vuex */ "./node_modules/vuex/dist/vuex.esm-bundler.js");
+/* harmony import */ var _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @babel/runtime/regenerator */ "./node_modules/@babel/runtime/regenerator/index.js");
+/* harmony import */ var _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _TaskListItemCheckbox__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./TaskListItemCheckbox */ "./resources/js/components/task-list/TaskListItemCheckbox.vue");
+/* harmony import */ var vue__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! vue */ "./node_modules/vue/dist/vue.esm-bundler.js");
+/* harmony import */ var vuex__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! vuex */ "./node_modules/vuex/dist/vuex.esm-bundler.js");
+
+
+function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) { try { var info = gen[key](arg); var value = info.value; } catch (error) { reject(error); return; } if (info.done) { resolve(value); } else { Promise.resolve(value).then(_next, _throw); } }
+
+function _asyncToGenerator(fn) { return function () { var self = this, args = arguments; return new Promise(function (resolve, reject) { var gen = fn.apply(self, args); function _next(value) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "next", value); } function _throw(err) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "throw", err); } _next(undefined); }); }; }
+
 
 
 
@@ -30139,10 +30240,33 @@ __webpack_require__.r(__webpack_exports__);
     var expose = _ref.expose;
     expose();
     var props = __props;
-    var store = (0,vuex__WEBPACK_IMPORTED_MODULE_2__.useStore)();
+    var store = (0,vuex__WEBPACK_IMPORTED_MODULE_3__.useStore)();
 
     function toggleTask() {
-      store.dispatch('task/toggleTask', props.task.id);
+      return _toggleTask.apply(this, arguments);
+    }
+
+    function _toggleTask() {
+      _toggleTask = _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().mark(function _callee() {
+        return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().wrap(function _callee$(_context) {
+          while (1) {
+            switch (_context.prev = _context.next) {
+              case 0:
+                _context.next = 2;
+                return store.dispatch('task/toggleTask', props.task.id);
+
+              case 2:
+                _context.next = 4;
+                return store.dispatch('task/getTasks');
+
+              case 4:
+              case "end":
+                return _context.stop();
+            }
+          }
+        }, _callee);
+      }));
+      return _toggleTask.apply(this, arguments);
     }
 
     function removeTask() {
@@ -30154,9 +30278,9 @@ __webpack_require__.r(__webpack_exports__);
       props: props,
       toggleTask: toggleTask,
       removeTask: removeTask,
-      TaskListItemCheckbox: _TaskListItemCheckbox__WEBPACK_IMPORTED_MODULE_0__["default"],
-      computed: vue__WEBPACK_IMPORTED_MODULE_1__.computed,
-      useStore: vuex__WEBPACK_IMPORTED_MODULE_2__.useStore
+      TaskListItemCheckbox: _TaskListItemCheckbox__WEBPACK_IMPORTED_MODULE_1__["default"],
+      computed: vue__WEBPACK_IMPORTED_MODULE_2__.computed,
+      useStore: vuex__WEBPACK_IMPORTED_MODULE_3__.useStore
     };
     Object.defineProperty(__returned__, '__isScriptSetup', {
       enumerable: false,
@@ -31073,12 +31197,60 @@ __webpack_require__.r(__webpack_exports__);
 var _hoisted_1 = {
   "class": "list-menu"
 };
+var _hoisted_2 = {
+  "class": "special-list"
+};
+var _hoisted_3 = {
+  "class": "list-item"
+};
 
-var _hoisted_2 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createStaticVNode)("<ul class=\"special-list\"><li class=\"list-item\">Today</li><li class=\"list-item\">This week</li><li class=\"list-item\">History</li></ul><div class=\"folders\"><h3>Your folders</h3><ul class=\"folder-list\"><li class=\"list-item\">Folder 1</li><li class=\"list-item\">Folder 2</li><li class=\"list-item\">Very important folder</li></ul></div>", 2);
+var _hoisted_4 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createTextVNode)("Today");
 
-var _hoisted_4 = [_hoisted_2];
-function render(_ctx, _cache) {
-  return (0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("div", _hoisted_1, _hoisted_4);
+var _hoisted_5 = {
+  "class": "list-item"
+};
+
+var _hoisted_6 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createTextVNode)("This week");
+
+var _hoisted_7 = {
+  "class": "list-item"
+};
+
+var _hoisted_8 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createTextVNode)("History");
+
+var _hoisted_9 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createStaticVNode)("<div class=\"folders\"><h3>Your folders</h3><ul class=\"folder-list\"><li class=\"list-item\">Folder 1</li><li class=\"list-item\">Folder 2</li><li class=\"list-item\">Very important folder</li></ul></div>", 1);
+
+function render(_ctx, _cache, $props, $setup, $data, $options) {
+  var _component_router_link = (0,vue__WEBPACK_IMPORTED_MODULE_0__.resolveComponent)("router-link");
+
+  return (0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("div", _hoisted_1, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("ul", _hoisted_2, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("li", _hoisted_3, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_router_link, {
+    to: "/today"
+  }, {
+    "default": (0,vue__WEBPACK_IMPORTED_MODULE_0__.withCtx)(function () {
+      return [_hoisted_4];
+    }),
+    _: 1
+    /* STABLE */
+
+  })]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("li", _hoisted_5, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_router_link, {
+    to: "/this-week"
+  }, {
+    "default": (0,vue__WEBPACK_IMPORTED_MODULE_0__.withCtx)(function () {
+      return [_hoisted_6];
+    }),
+    _: 1
+    /* STABLE */
+
+  })]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("li", _hoisted_7, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_router_link, {
+    to: "/history"
+  }, {
+    "default": (0,vue__WEBPACK_IMPORTED_MODULE_0__.withCtx)(function () {
+      return [_hoisted_8];
+    }),
+    _: 1
+    /* STABLE */
+
+  })])]), _hoisted_9]);
 }
 
 /***/ }),
@@ -31206,6 +31378,7 @@ var _hoisted_2 = {
   "class": "container"
 };
 var _hoisted_3 = {
+  key: 0,
   "class": "task-new"
 };
 function render(_ctx, _cache, $props, $setup, $data, $options) {
@@ -31217,7 +31390,7 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
     , ["task"]);
   }), 256
   /* UNKEYED_FRAGMENT */
-  )), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_3, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)($setup["InputField"], {
+  )), $setup.showNewTaskInput ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("div", _hoisted_3, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)($setup["InputField"], {
     label: "New task",
     modelValue: $setup.taskName,
     "onUpdate:modelValue": _cache[0] || (_cache[0] = function ($event) {
@@ -31226,7 +31399,7 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
     onKeyup: (0,vue__WEBPACK_IMPORTED_MODULE_0__.withKeys)($setup.addTask, ["enter"])
   }, null, 8
   /* PROPS */
-  , ["modelValue", "onKeyup"])])])]);
+  , ["modelValue", "onKeyup"])])) : (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("v-if", true)])]);
 }
 
 /***/ }),
@@ -31442,9 +31615,10 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
     })
   }, null, 8
   /* PROPS */
-  , ["modelValue"]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("            <button class=\"btn btn-large btn-submit waves-effect waves-light orange\" @click.prevent=\"updateTask\">"), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("                Zapisz"), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("            </button>"), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("            <router-link to=\"/\" class=\"btn btn-large btn-submit waves-effect waves-light orange lighten-3\" style=\"margin-left: 1rem\">"), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("                Cofnij"), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("            </router-link>"), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_4, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)($setup["Button"], {
-    type: "link",
-    to: "/",
+  , ["modelValue"]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_4, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)($setup["Button"], {
+    onClick: _cache[1] || (_cache[1] = function ($event) {
+      return $setup.router.go(-1);
+    }),
     outline: ""
   }, {
     "default": (0,vue__WEBPACK_IMPORTED_MODULE_0__.withCtx)(function () {
@@ -31587,6 +31761,28 @@ app.mount('#app');
 
 /***/ }),
 
+/***/ "./resources/js/constants.js":
+/*!***********************************!*\
+  !*** ./resources/js/constants.js ***!
+  \***********************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "List": () => (/* binding */ List)
+/* harmony export */ });
+var List = {
+  TODAY: 'today',
+  THIS_WEEK: 'this-week',
+  HISTORY: 'history',
+  ALL: 'all',
+  FOLDER: 'folder'
+};
+
+
+/***/ }),
+
 /***/ "./resources/js/routes.js":
 /*!********************************!*\
   !*** ./resources/js/routes.js ***!
@@ -31605,7 +31801,7 @@ __webpack_require__.r(__webpack_exports__);
 
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ([{
-  path: '/',
+  path: '/:listName?',
   name: 'home',
   component: _views_Home__WEBPACK_IMPORTED_MODULE_0__["default"],
   props: {
@@ -31860,6 +32056,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @babel/runtime/regenerator */ "./node_modules/@babel/runtime/regenerator/index.js");
 /* harmony import */ var _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var _api__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../api */ "./resources/js/api/index.js");
+/* harmony import */ var _constants__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../constants */ "./resources/js/constants.js");
 
 
 function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) { try { var info = gen[key](arg); var value = info.value; } catch (error) { reject(error); return; } if (info.done) { resolve(value); } else { Promise.resolve(value).then(_next, _throw); } }
@@ -31880,10 +32077,12 @@ function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len 
 
 
 
+
 function initialState() {
   return {
     tasks: [],
-    activeTask: {}
+    activeTask: {},
+    currentList: _constants__WEBPACK_IMPORTED_MODULE_2__.List.TODAY
   };
 }
 
@@ -31901,6 +32100,9 @@ var getters = {
   },
   activeTask: function activeTask(state) {
     return state.activeTask;
+  },
+  currentList: function currentList(state) {
+    return state.currentList;
   }
 };
 var mutations = {
@@ -31926,27 +32128,57 @@ var mutations = {
     var index = getters.taskIndex(id);
     state.tasks.splice(index, 1);
   },
+  SET_CURRENT_LIST: function SET_CURRENT_LIST(state, payload) {
+    state.currentList = payload;
+  },
   RESET: function RESET(state) {
     Object.assign(state, initialState());
   }
 };
 var actions = {
-  getTasksForAuthenticatedUser: function getTasksForAuthenticatedUser(_ref3) {
+  getTasks: function getTasks(_ref3) {
     return _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().mark(function _callee() {
-      var commit, response;
+      var state, commit, currentList, response;
       return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().wrap(function _callee$(_context) {
         while (1) {
           switch (_context.prev = _context.next) {
             case 0:
-              commit = _ref3.commit;
-              _context.next = 3;
+              state = _ref3.state, commit = _ref3.commit;
+              currentList = state.currentList;
+
+              if (!(currentList === _constants__WEBPACK_IMPORTED_MODULE_2__.List.TODAY)) {
+                _context.next = 8;
+                break;
+              }
+
+              _context.next = 5;
               return _api__WEBPACK_IMPORTED_MODULE_1__["default"].get(route('api.tasks.index'));
 
-            case 3:
+            case 5:
               response = _context.sent;
+              _context.next = 12;
+              break;
+
+            case 8:
+              if (!(currentList === _constants__WEBPACK_IMPORTED_MODULE_2__.List.HISTORY)) {
+                _context.next = 12;
+                break;
+              }
+
+              _context.next = 11;
+              return _api__WEBPACK_IMPORTED_MODULE_1__["default"].get(route('api.tasks.index'), {
+                params: {
+                  is_done: 1
+                }
+              });
+
+            case 11:
+              response = _context.sent;
+
+            case 12:
               commit('SET_TASKS', response.data.data);
 
-            case 5:
+            case 13:
             case "end":
               return _context.stop();
           }
@@ -31954,7 +32186,7 @@ var actions = {
       }, _callee);
     }))();
   },
-  createTask: function createTask(_ref4, payload) {
+  getHistoricTasks: function getHistoricTasks(_ref4) {
     return _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().mark(function _callee2() {
       var commit, response;
       return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().wrap(function _callee2$(_context2) {
@@ -31963,14 +32195,17 @@ var actions = {
             case 0:
               commit = _ref4.commit;
               _context2.next = 3;
-              return _api__WEBPACK_IMPORTED_MODULE_1__["default"].post(route('api.tasks.store'), payload);
+              return _api__WEBPACK_IMPORTED_MODULE_1__["default"].get(route('api.tasks.index'), {
+                params: {
+                  is_done: 1
+                }
+              });
 
             case 3:
               response = _context2.sent;
-              commit('CREATE_TASK', response.data.data);
-              return _context2.abrupt("return", response);
+              commit('SET_TASKS', response.data.data);
 
-            case 6:
+            case 5:
             case "end":
               return _context2.stop();
           }
@@ -31978,25 +32213,20 @@ var actions = {
       }, _callee2);
     }))();
   },
-  toggleTask: function toggleTask(_ref5, id) {
+  createTask: function createTask(_ref5, payload) {
     return _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().mark(function _callee3() {
-      var commit, getters, response;
+      var commit, response;
       return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().wrap(function _callee3$(_context3) {
         while (1) {
           switch (_context3.prev = _context3.next) {
             case 0:
-              commit = _ref5.commit, getters = _ref5.getters;
+              commit = _ref5.commit;
               _context3.next = 3;
-              return _api__WEBPACK_IMPORTED_MODULE_1__["default"].post(route('api.tasks.toggle', {
-                task: id
-              }));
+              return _api__WEBPACK_IMPORTED_MODULE_1__["default"].post(route('api.tasks.store'), payload);
 
             case 3:
               response = _context3.sent;
-              commit('TOGGLE_TASK', {
-                getters: getters,
-                id: id
-              });
+              commit('CREATE_TASK', response.data.data);
               return _context3.abrupt("return", response);
 
             case 6:
@@ -32007,22 +32237,25 @@ var actions = {
       }, _callee3);
     }))();
   },
-  findTask: function findTask(_ref6, id) {
+  toggleTask: function toggleTask(_ref6, id) {
     return _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().mark(function _callee4() {
-      var commit, response;
+      var commit, getters, response;
       return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().wrap(function _callee4$(_context4) {
         while (1) {
           switch (_context4.prev = _context4.next) {
             case 0:
-              commit = _ref6.commit;
+              commit = _ref6.commit, getters = _ref6.getters;
               _context4.next = 3;
-              return _api__WEBPACK_IMPORTED_MODULE_1__["default"].get(route('api.tasks.show', {
+              return _api__WEBPACK_IMPORTED_MODULE_1__["default"].post(route('api.tasks.toggle', {
                 task: id
               }));
 
             case 3:
               response = _context4.sent;
-              commit('SET_ACTIVE_TASK', response.data.data);
+              commit('TOGGLE_TASK', {
+                getters: getters,
+                id: id
+              });
               return _context4.abrupt("return", response);
 
             case 6:
@@ -32033,24 +32266,25 @@ var actions = {
       }, _callee4);
     }))();
   },
-  updateTask: function updateTask(_ref7, _ref8) {
+  findTask: function findTask(_ref7, id) {
     return _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().mark(function _callee5() {
-      var commit, id, value;
+      var commit, response;
       return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().wrap(function _callee5$(_context5) {
         while (1) {
           switch (_context5.prev = _context5.next) {
             case 0:
               commit = _ref7.commit;
-              id = _ref8.id, value = _ref8.value;
-              _context5.next = 4;
-              return _api__WEBPACK_IMPORTED_MODULE_1__["default"].put(route('api.tasks.update', {
+              _context5.next = 3;
+              return _api__WEBPACK_IMPORTED_MODULE_1__["default"].get(route('api.tasks.show', {
                 task: id
-              }), value);
+              }));
 
-            case 4:
-              return _context5.abrupt("return", _context5.sent);
+            case 3:
+              response = _context5.sent;
+              commit('SET_ACTIVE_TASK', response.data.data);
+              return _context5.abrupt("return", response);
 
-            case 5:
+            case 6:
             case "end":
               return _context5.stop();
           }
@@ -32058,34 +32292,64 @@ var actions = {
       }, _callee5);
     }))();
   },
-  destroyTask: function destroyTask(_ref9, id) {
+  updateTask: function updateTask(_ref8, _ref9) {
     return _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().mark(function _callee6() {
-      var commit, getters, response;
+      var commit, id, value;
       return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().wrap(function _callee6$(_context6) {
         while (1) {
           switch (_context6.prev = _context6.next) {
             case 0:
-              commit = _ref9.commit, getters = _ref9.getters;
-              _context6.next = 3;
-              return _api__WEBPACK_IMPORTED_MODULE_1__["default"]["delete"](route('api.tasks.destroy', {
+              commit = _ref8.commit;
+              id = _ref9.id, value = _ref9.value;
+              _context6.next = 4;
+              return _api__WEBPACK_IMPORTED_MODULE_1__["default"].put(route('api.tasks.update', {
                 task: id
-              }));
+              }), value);
 
-            case 3:
-              response = _context6.sent;
-              commit('DESTROY_TASK', {
-                getters: getters,
-                id: id
-              });
-              return _context6.abrupt("return", response);
+            case 4:
+              return _context6.abrupt("return", _context6.sent);
 
-            case 6:
+            case 5:
             case "end":
               return _context6.stop();
           }
         }
       }, _callee6);
     }))();
+  },
+  destroyTask: function destroyTask(_ref10, id) {
+    return _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().mark(function _callee7() {
+      var commit, getters, response;
+      return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().wrap(function _callee7$(_context7) {
+        while (1) {
+          switch (_context7.prev = _context7.next) {
+            case 0:
+              commit = _ref10.commit, getters = _ref10.getters;
+              _context7.next = 3;
+              return _api__WEBPACK_IMPORTED_MODULE_1__["default"]["delete"](route('api.tasks.destroy', {
+                task: id
+              }));
+
+            case 3:
+              response = _context7.sent;
+              commit('DESTROY_TASK', {
+                getters: getters,
+                id: id
+              });
+              return _context7.abrupt("return", response);
+
+            case 6:
+            case "end":
+              return _context7.stop();
+          }
+        }
+      }, _callee7);
+    }))();
+  },
+  changeCurrentList: function changeCurrentList(_ref11, payload) {
+    var commit = _ref11.commit;
+    var currentList = payload || _constants__WEBPACK_IMPORTED_MODULE_2__.List.TODAY;
+    commit('SET_CURRENT_LIST', currentList);
   }
 };
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
@@ -63049,12 +63313,14 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
 /* harmony import */ var _ListMenu_vue_vue_type_template_id_f2003246__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./ListMenu.vue?vue&type=template&id=f2003246 */ "./resources/js/components/navigation/ListMenu.vue?vue&type=template&id=f2003246");
-/* harmony import */ var C_dev_self_todo_app_node_modules_vue_loader_dist_exportHelper_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./node_modules/vue-loader/dist/exportHelper.js */ "./node_modules/vue-loader/dist/exportHelper.js");
+/* harmony import */ var _ListMenu_vue_vue_type_script_setup_true_lang_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./ListMenu.vue?vue&type=script&setup=true&lang=js */ "./resources/js/components/navigation/ListMenu.vue?vue&type=script&setup=true&lang=js");
+/* harmony import */ var C_dev_self_todo_app_node_modules_vue_loader_dist_exportHelper_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./node_modules/vue-loader/dist/exportHelper.js */ "./node_modules/vue-loader/dist/exportHelper.js");
 
-const script = {}
+
+
 
 ;
-const __exports__ = /*#__PURE__*/(0,C_dev_self_todo_app_node_modules_vue_loader_dist_exportHelper_js__WEBPACK_IMPORTED_MODULE_1__["default"])(script, [['render',_ListMenu_vue_vue_type_template_id_f2003246__WEBPACK_IMPORTED_MODULE_0__.render],['__file',"resources/js/components/navigation/ListMenu.vue"]])
+const __exports__ = /*#__PURE__*/(0,C_dev_self_todo_app_node_modules_vue_loader_dist_exportHelper_js__WEBPACK_IMPORTED_MODULE_2__["default"])(_ListMenu_vue_vue_type_script_setup_true_lang_js__WEBPACK_IMPORTED_MODULE_1__["default"], [['render',_ListMenu_vue_vue_type_template_id_f2003246__WEBPACK_IMPORTED_MODULE_0__.render],['__file',"resources/js/components/navigation/ListMenu.vue"]])
 /* hot reload */
 if (false) {}
 
@@ -63383,6 +63649,22 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "default": () => (/* reexport safe */ _node_modules_babel_loader_lib_index_js_clonedRuleSet_5_use_0_node_modules_vue_loader_dist_index_js_ruleSet_0_use_0_HamburgerBtn_vue_vue_type_script_setup_true_lang_js__WEBPACK_IMPORTED_MODULE_0__["default"])
 /* harmony export */ });
 /* harmony import */ var _node_modules_babel_loader_lib_index_js_clonedRuleSet_5_use_0_node_modules_vue_loader_dist_index_js_ruleSet_0_use_0_HamburgerBtn_vue_vue_type_script_setup_true_lang_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!../../../../node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./HamburgerBtn.vue?vue&type=script&setup=true&lang=js */ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./resources/js/components/navigation/HamburgerBtn.vue?vue&type=script&setup=true&lang=js");
+ 
+
+/***/ }),
+
+/***/ "./resources/js/components/navigation/ListMenu.vue?vue&type=script&setup=true&lang=js":
+/*!********************************************************************************************!*\
+  !*** ./resources/js/components/navigation/ListMenu.vue?vue&type=script&setup=true&lang=js ***!
+  \********************************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (/* reexport safe */ _node_modules_babel_loader_lib_index_js_clonedRuleSet_5_use_0_node_modules_vue_loader_dist_index_js_ruleSet_0_use_0_ListMenu_vue_vue_type_script_setup_true_lang_js__WEBPACK_IMPORTED_MODULE_0__["default"])
+/* harmony export */ });
+/* harmony import */ var _node_modules_babel_loader_lib_index_js_clonedRuleSet_5_use_0_node_modules_vue_loader_dist_index_js_ruleSet_0_use_0_ListMenu_vue_vue_type_script_setup_true_lang_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!../../../../node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./ListMenu.vue?vue&type=script&setup=true&lang=js */ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./resources/js/components/navigation/ListMenu.vue?vue&type=script&setup=true&lang=js");
  
 
 /***/ }),

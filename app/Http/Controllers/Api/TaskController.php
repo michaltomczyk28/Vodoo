@@ -14,12 +14,14 @@ class TaskController extends Controller
 {
     public function index()
     {
-        $userTasks = Auth::user()
+        $isDone = request('is_done') ?? 0;
+
+        $tasks = Auth::user()
             ->tasks()
-            ->orderBy('created_at', 'desc')
+            ->where('is_done', $isDone)
             ->get();
 
-        return TaskResource::collection($userTasks);
+        return TaskResource::collection($tasks);
     }
 
     public function store(CreateTaskRequest $request)

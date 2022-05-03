@@ -9,8 +9,9 @@
         task: Object
     })
 
-    function toggleTask(){
-        store.dispatch('task/toggleTask', props.task.id);
+    async function toggleTask(){
+        await store.dispatch('task/toggleTask', props.task.id);
+        await store.dispatch('task/getTasks');
     }
 
     function removeTask(){

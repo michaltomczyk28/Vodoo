@@ -1,13 +1,26 @@
 <script setup>
+import {List} from "../../constants";
+import {useStore} from 'vuex';
+import {useRoute} from 'vue-router'
+
+const route = useRoute();
+
+const store = useStore();
 
 </script>
 
 <template>
     <div class="list-menu">
         <ul class="special-list">
-            <li class="list-item">Today</li>
-            <li class="list-item">This week</li>
-            <li class="list-item">History</li>
+            <li class="list-item">
+                <router-link to="/today">Today</router-link>
+            </li>
+            <li class="list-item" >
+                <router-link to="/this-week">This week</router-link>
+            </li>
+            <li class="list-item">
+                <router-link to="/history">History</router-link>
+            </li>
         </ul>
         <div class="folders">
             <h3>Your folders</h3>

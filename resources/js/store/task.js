@@ -1,17 +1,22 @@
 import api from '../api'
+import {List} from "../constants";
+
 
 function initialState(){
     return {
         tasks: [],
-        activeTask: {}
+        activeTask: {},
+        currentList: List.TODAY
     }
 }
+
 const state = initialState();
 
 const getters = {
     tasks: state => state.tasks,
     taskIndex: state => id => state.tasks.findIndex(task => task.id === id),
     activeTask: state => state.activeTask,
+    currentList: state => state.currentList
 };
 
 const mutations = {
@@ -34,14 +39,28 @@ const mutations = {
         const index = getters.taskIndex(id);
         state.tasks.splice(index, 1);
     },
+    SET_CURRENT_LIST(state, payload){
+        state.currentList = payload;
+    },
     RESET(state){
         Object.assign(state, initialState());
     }
 };
 
 const actions = {
-    async getTasksForAuthenticatedUser({ commit }){
-        const response = await api.get(route('api.tasks.index'));
+    async getTasks({ state, commit }){
+        const {currentList} = state;
+        let response;
+
+        if(currentList === List.TODAY)
+            response = await api.get(route('api.tasks.index'));
+        else if(currentList === List.HISTORY)
+            response = await api.get(route('api.tasks.index'), {params: {is_done: 1}});
+
+        commit('SET_TASKS', response.data.data);
+    },
+    async getHistoricTasks({ commit }){
+        const response = await api.get(route('api.tasks.index'), { params: {is_done: 1}});
         commit('SET_TASKS', response.data.data);
     },
     async createTask({commit}, payload){
@@ -70,6 +89,10 @@ const actions = {
         commit('DESTROY_TASK', {getters, id});
 
         return response;
+    },
+    changeCurrentList({commit}, payload){
+        const currentList = payload || List.TODAY;
+        commit('SET_CURRENT_LIST', currentList);
     }
 };
 

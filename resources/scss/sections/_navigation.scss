@@ -67,6 +67,11 @@
 
     .list-item{
         margin-bottom: 3rem;
+
+        a{
+            color: inherit;
+            text-decoration: none;
+        }
     }
 
     .folders{
