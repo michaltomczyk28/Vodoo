@@ -30032,10 +30032,14 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
     expose();
     var store = (0,vuex__WEBPACK_IMPORTED_MODULE_5__.useStore)();
     var router = (0,vue_router__WEBPACK_IMPORTED_MODULE_6__.useRouter)();
+    var route = (0,vue_router__WEBPACK_IMPORTED_MODULE_6__.useRoute)();
     var isLoggedIn = (0,vue__WEBPACK_IMPORTED_MODULE_4__.computed)(function () {
       return store.getters['auth/isLoggedIn'];
     });
     var expanded = (0,vue__WEBPACK_IMPORTED_MODULE_4__.ref)(false);
+    (0,vue__WEBPACK_IMPORTED_MODULE_4__.watch)(route, function () {
+      expanded.value = false;
+    });
 
     function logout() {
       return _logout.apply(this, arguments);
@@ -30067,6 +30071,7 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
     var __returned__ = {
       store: store,
       router: router,
+      route: route,
       isLoggedIn: isLoggedIn,
       expanded: expanded,
       logout: logout,
@@ -30075,8 +30080,10 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
       Button: _Button__WEBPACK_IMPORTED_MODULE_3__["default"],
       useStore: vuex__WEBPACK_IMPORTED_MODULE_5__.useStore,
       useRouter: vue_router__WEBPACK_IMPORTED_MODULE_6__.useRouter,
+      useRoute: vue_router__WEBPACK_IMPORTED_MODULE_6__.useRoute,
       computed: vue__WEBPACK_IMPORTED_MODULE_4__.computed,
-      ref: vue__WEBPACK_IMPORTED_MODULE_4__.ref
+      ref: vue__WEBPACK_IMPORTED_MODULE_4__.ref,
+      watch: vue__WEBPACK_IMPORTED_MODULE_4__.watch
     };
     Object.defineProperty(__returned__, '__isScriptSetup', {
       enumerable: false,

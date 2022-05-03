@@ -4,14 +4,22 @@
     import Button from '../Button'
 
     import {useStore} from 'vuex';
-    import {useRouter} from 'vue-router'
-    import {computed, ref} from 'vue'
+    import {useRouter, useRoute} from 'vue-router'
+    import {computed, ref, watch} from 'vue'
 
     const store = useStore();
     const router = useRouter();
+    const route = useRoute();
 
     const isLoggedIn = computed(() => store.getters['auth/isLoggedIn'])
     const expanded = ref(false)
+
+    watch(
+        route,
+        () => {
+            expanded.value = false;
+        }
+    )
 
     async function logout(){
         await store.dispatch('auth/logout');
@@ -25,7 +33,7 @@
     <nav class="main-nav" :class="{expanded}">
         <div class="container">
             <div class="nav-wrapper" >
-                <router-link :to="{name: 'home'}" >
+                <router-link :to="{name: 'home'}">
                     <img src="/images/logo.png" alt="" class="logo">
                 </router-link>
 
