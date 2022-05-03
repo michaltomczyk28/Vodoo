@@ -34,12 +34,12 @@
 
 <style lang="scss">
     .ProseMirror {
-        padding: .2rem 1rem;
+        padding: 3.5rem;
         margin-top: .5rem;
         min-height: 400px;
-        border: 1px solid #dfdfdf;
-        border-bottom: 3px solid #dfdfdf;
+        border: 1px solid var(--black);
 
+        font-weight: 300;
 
         > * + * {
             margin-top: 0.75em;
@@ -62,24 +62,13 @@
             }
         }
 
-        h1,
-        h2,
-        h3,
-        h4,
-        h5,
-        h6 {
-            line-height: 1.1;
-            font-weight: bold;
+        h1, h2, h3, h4, h5, h6{
+            margin-bottom: 1.2em;
+            font-weight: 300;
         }
 
-        h1{
-            font-size: 2.5rem;
-        }
-        h2{
-            font-size: 2rem;
-        }
-        h3{
-            font-size: 1.5rem;
+        p{
+            font-size: 1.6rem;
         }
 
         code {
@@ -90,7 +79,6 @@
         pre {
             background: #0D0D0D;
             color: #FFF;
-            font-family: 'JetBrainsMono', monospace;
             padding: 0.75rem 1rem;
             border-radius: 0.5rem;
 
