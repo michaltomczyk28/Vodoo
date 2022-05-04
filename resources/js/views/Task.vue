@@ -2,6 +2,7 @@
     import Navbar from "../components/navigation/Navbar";
     import Editor from '../components/Editor';
     import Button from '../components/Button'
+
     import {useStore} from 'vuex';
     import {onMounted, ref} from 'vue';
     import {useRoute, useRouter} from 'vue-router';
@@ -36,7 +37,6 @@
 </script>
 
 <template>
-<!--    <Navbar/>-->
     <div class="task-wrapper">
         <div class="container" v-if="!loading">
             <div class="section">
@@ -44,14 +44,13 @@
                 <Editor v-model="task.description"/>
 
                 <div class="buttons">
-                    <Button @click="router.go(-1)" outline>Return</Button>
+                    <Button type="link" to="/" outline>Return</Button>
                     <Button filled @click="updateTask">Save</Button>
                 </div>
 
             </div>
         </div>
     </div>
-
 </template>
 
 

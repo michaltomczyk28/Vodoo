@@ -37,11 +37,14 @@ class TaskController extends Controller
 
     public function show(Task $task)
     {
+        $this->authorize('view', $task);
+
         return new TaskResource($task);
     }
 
     public function update(UpdateTaskRequest $request, Task $task)
     {
+        $this->authorize('update', $task);
         $task->update($request->all());
 
         return (new TaskResource($task))
@@ -60,6 +63,7 @@ class TaskController extends Controller
 
     public function destroy(Task $task)
     {
+        $this->authorize('delete', $task);
         $task->delete();
 
         return response()->noContent();
