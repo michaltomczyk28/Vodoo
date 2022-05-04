@@ -20,21 +20,6 @@ class Task extends Model
         'is_done' => 'boolean'
     ];
 
-    protected static function booted()
-    {
-        static::addGlobalScope(new NewestOrderScope());
-    }
-
-    public function scopeUndone($query)
-    {
-        return $query->where('is_done', false);
-    }
-
-    public function scopeDone($query)
-    {
-        return $query->where('is_done', true);
-    }
-
     public function users()
     {
         return $this->belongsToMany(User::class);

@@ -31,4 +31,10 @@ class User extends Authenticatable
     public function tasks(){
         return $this->belongsToMany(Task::class);
     }
+
+    public function hasTask(Task $task){
+        return $this->tasks()
+            ->where('task_id', $task->id)
+            ->exists();
+    }
 }

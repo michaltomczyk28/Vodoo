@@ -12,16 +12,16 @@ class TaskPolicy
 
     public function view(User $user, Task $task)
     {
-        return $user->tasks->contains($task->id);
+        return $user->hasTask($task);
     }
 
     public function update(User $user, Task $task)
     {
-        return $user->tasks->contains($task->id);
+        return $user->hasTask($task);
     }
 
     public function delete(User $user, Task $task)
     {
-        return $user->tasks->contains($task->id);
+        return $user->hasTask($task);
     }
 }

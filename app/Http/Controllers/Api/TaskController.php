@@ -19,6 +19,7 @@ class TaskController extends Controller
         $tasks = Auth::user()
             ->tasks()
             ->where('is_done', $isDone)
+            ->orderBy('created_at', 'desc')
             ->get();
 
         return TaskResource::collection($tasks);
