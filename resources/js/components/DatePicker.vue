@@ -1,0 +1,53 @@
+<script setup>
+    import Litepicker from 'litepicker'
+    import dayjs from 'dayjs'
+    import {onMounted, ref} from 'vue'
+
+    let picker;
+
+    const props = defineProps({
+        modelValue: {
+            type: String,
+        }
+    })
+
+    const emit = defineEmits(['update:modelValue'])
+
+    function openDatepicker(){
+        picker.show();
+    }
+
+    function formatDate(date){
+        return dayjs(date).format('DD/MM/YYYY');
+    }
+
+    onMounted(() => {
+        picker = new Litepicker({
+            element: document.getElementById('datepicker'),
+            parentEl: document.querySelector('.datepicker-container'),
+            startDate: props.modelValue,
+            resetButton: true,
+            setup: (picker) => {
+                picker.on('selected', (date) => {
+                    emit('update:modelValue', date.dateInstance.toString());
+                });
+
+                picker.on('clear:selection', () => {
+                    emit('update:modelValue', null);
+
+                })
+            },
+        })
+    })
+
+</script>
+
+<template>
+    <div class="datepicker-container">
+        <div class="controls">
+            <button id="datepicker" class="datepicker-btn"><span class="fa-solid fa-calendar-alt"></span></button>
+            <div class="datepicker-value" @click="openDatepicker">{{ props.modelValue ? formatDate(props.modelValue) : 'No deadline' }}</div>
+        </div>
+    </div>
+</template>
+

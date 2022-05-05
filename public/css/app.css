@@ -44,6 +44,7 @@ body {
 
 .container {
   margin: 0 var(--container-margin);
+  position: relative;
 }
 
 @media (min-width: 576px) {
@@ -97,7 +98,7 @@ body {
 }
 h1 {
   font-size: 2.4rem;
-  margin: 0 0 5rem;
+  margin: 0 0 3.5rem;
 }
 
 h2 {
@@ -113,7 +114,7 @@ h3 {
 @media (min-width: 1680px) {
   h1 {
     font-size: 3.2rem;
-    margin-bottom: 7rem;
+    margin-bottom: 5rem;
   }
 
   h2 {
@@ -375,6 +376,15 @@ h3 {
     padding: 3rem 0 4rem;
   }
 }
+.task-wrapper .title-beam {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  flex-direction: column;
+  -moz-column-gap: 4rem;
+       column-gap: 4rem;
+  margin-bottom: 5rem;
+}
 .task-wrapper .buttons {
   margin-top: 5rem;
   display: flex;
@@ -384,6 +394,10 @@ h3 {
 }
 
 @media (min-width: 992px) {
+  .task-wrapper .title-beam {
+    margin-bottom: 3rem;
+    flex-direction: row;
+  }
   .task-wrapper .buttons {
     margin-top: 7.5rem;
     flex-direction: row;
@@ -530,4 +544,54 @@ h3 {
 .field-wrapper .input-label.active {
   transform: translateY(-1rem) scale(0.8);
   transform-origin: 0 0;
+}
+
+.datepicker-container .litepicker {
+  top: unset !important;
+  left: 0 !important;
+  margin-top: 2rem;
+  --litepicker-button-prev-month-color-hover: var(--main);
+  --litepicker-button-next-month-color-hover: var(--main);
+  --litepicker-day-color-hover: var(--main);
+  --litepicker-is-start-color-bg: var(--main);
+  --litepicker-is-end-color-bg: var(--main);
+  --litepicker-button-apply-color-bg: var(--main);
+  --litepicker-button-reset-color-hover: var(--main);
+}
+.datepicker-container .litepicker .container__days > div {
+  flex-basis: 14.2857142857%;
+}
+.datepicker-container .litepicker .container__months {
+  justify-content: center;
+}
+.datepicker-container .litepicker .container__months .month-item {
+  padding: 1rem;
+}
+.datepicker-container .controls {
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+}
+.datepicker-container .datepicker-value {
+  font-weight: 500;
+}
+.datepicker-container .datepicker-btn {
+  padding: 0;
+  border: none;
+  color: var(--main);
+  font-size: 2.2rem;
+  background-color: inherit;
+}
+.datepicker-container .datepicker-btn:hover {
+  color: var(--hover);
+}
+.datepicker-container .datepicker-btn span {
+  pointer-events: none;
+}
+
+@media (min-width: 992px) {
+  .datepicker-container .litepicker {
+    right: -2rem !important;
+    left: unset !important;
+  }
 }

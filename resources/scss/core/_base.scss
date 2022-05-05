@@ -30,10 +30,12 @@ body{
     -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.1);
     background-color: #f3f3f3;
 }
+
 ::-webkit-scrollbar{
     width: 4px;
     background-color: #f3f3f3;
 }
+
 ::-webkit-scrollbar-thumb{
     background-color: #333333;
     border-radius: 10px;
@@ -44,12 +46,11 @@ body{
 
     display: flex;
     flex-direction: column;
-
-
 }
 
 .container{
     margin: 0 var(--container-margin);
+    position: relative;
 }
 
 @media (min-width: 576px) {

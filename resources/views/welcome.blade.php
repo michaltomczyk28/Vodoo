@@ -15,13 +15,12 @@
     <script src="https://kit.fontawesome.com/5e08e4b8e5.js" crossorigin="anonymous"></script>
 </head>
 <body class="antialiased">
-@routes
-<div id="app">
-    <app></app>
-</div>
+    @routes
 
+    <div id="app">
+        <app></app>
+    </div>
 
-
-<script src="{{ mix('js/app.js') }}"></script>
+    <script src="{{ mix('js/app.js') }}"></script>
 </body>
 </html>

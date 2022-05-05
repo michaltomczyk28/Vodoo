@@ -1,10 +1,7 @@
 <script setup>
-    import {defineProps} from 'vue';
-
     const props = defineProps({
         editor: Object
     })
-
 </script>
 
 <template>

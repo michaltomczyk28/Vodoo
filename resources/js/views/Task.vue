@@ -2,6 +2,9 @@
     import Navbar from "../components/navigation/Navbar";
     import Editor from '../components/Editor';
     import Button from '../components/Button'
+    import DatePicker from '../components/DatePicker'
+
+    // import Litepicker from 'litepicker';
 
     import {useStore} from 'vuex';
     import {onMounted, ref} from 'vue';
@@ -14,16 +17,25 @@
     const description = ref('');
     const task = ref({
         name: '',
-        description: ''
+        description: '',
+        deadline: null
     });
 
     const editTitle = ref(false);
     const loading = ref(true);
 
+    // let picker;
+
+
     onMounted(async () => {
         await store.dispatch('task/findTask', route.params.taskId);
         task.value = await store.getters['task/activeTask'];
         loading.value = false;
+
+        // await nextTick()
+        // picker = new Litepicker({
+        //     element: document.getElementById('datepicker')
+        // })
     });
 
     async function updateTask(){
@@ -39,16 +51,18 @@
 <template>
     <div class="task-wrapper">
         <div class="container" v-if="!loading">
-            <div class="section">
+            <div class="title-beam">
                 <h1 contenteditable @input="updateName">{{ task.name }}</h1>
-                <Editor v-model="task.description"/>
-
-                <div class="buttons">
-                    <Button type="link" to="/" outline>Return</Button>
-                    <Button filled @click="updateTask">Save</Button>
-                </div>
-
+                <DatePicker v-model="task.deadline"/>
             </div>
+
+            <Editor v-model="task.description"/>
+
+            <div class="buttons">
+                <Button type="link" to="/" outline>Return</Button>
+                <Button filled @click="updateTask">Save</Button>
+            </div>
+
         </div>
     </div>
 </template>
