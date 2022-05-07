@@ -29540,7 +29540,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   props: {
     modelValue: {
-      type: String
+      type: Date
     }
   },
   emits: ['update:modelValue'],
@@ -29567,7 +29567,10 @@ __webpack_require__.r(__webpack_exports__);
         resetButton: true,
         setup: function setup(picker) {
           picker.on('selected', function (date) {
-            emit('update:modelValue', date.dateInstance.toString());
+            var selectedDate = date.dateInstance;
+            var now = new Date();
+            selectedDate.setHours(now.getHours());
+            emit('update:modelValue', selectedDate);
           });
           picker.on('clear:selection', function () {
             emit('update:modelValue', null);
@@ -30543,8 +30546,7 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
       deadline: null
     });
     var editTitle = (0,vue__WEBPACK_IMPORTED_MODULE_5__.ref)(false);
-    var loading = (0,vue__WEBPACK_IMPORTED_MODULE_5__.ref)(true); // let picker;
-
+    var loading = (0,vue__WEBPACK_IMPORTED_MODULE_5__.ref)(true);
     (0,vue__WEBPACK_IMPORTED_MODULE_5__.onMounted)( /*#__PURE__*/_asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().mark(function _callee() {
       return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().wrap(function _callee$(_context) {
         while (1) {
@@ -30559,10 +30561,7 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
 
             case 4:
               task.value = _context.sent;
-              loading.value = false; // await nextTick()
-              // picker = new Litepicker({
-              //     element: document.getElementById('datepicker')
-              // })
+              loading.value = false;
 
             case 6:
             case "end":
@@ -32402,7 +32401,7 @@ var actions = {
   },
   findTask: function findTask(_ref7, id) {
     return _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().mark(function _callee5() {
-      var commit, response;
+      var commit, response, deadline;
       return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().wrap(function _callee5$(_context5) {
         while (1) {
           switch (_context5.prev = _context5.next) {
@@ -32415,10 +32414,12 @@ var actions = {
 
             case 3:
               response = _context5.sent;
+              deadline = response.data.data.deadline;
+              response.data.data.deadline = deadline !== null ? new Date(response.data.data.deadline) : null;
               commit('SET_ACTIVE_TASK', response.data.data);
               return _context5.abrupt("return", response);
 
-            case 6:
+            case 8:
             case "end":
               return _context5.stop();
           }

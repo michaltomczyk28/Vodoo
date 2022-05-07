@@ -8,6 +8,7 @@ use App\Http\Requests\UpdateTaskRequest;
 use App\Http\Resources\TaskResource;
 use App\Models\Task;
 use Illuminate\Http\Request;
+use Illuminate\Support\Carbon;
 use Illuminate\Support\Facades\Auth;
 
 class TaskController extends Controller
@@ -15,10 +16,10 @@ class TaskController extends Controller
     public function index()
     {
         $isDone = request('is_done') ?? 0;
-
         $tasks = Auth::user()
             ->tasks()
             ->where('is_done', $isDone)
+            ->whereDate('deadline', Carbon::today())
             ->orderBy('created_at', 'desc')
             ->get();
 

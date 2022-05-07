@@ -7,7 +7,7 @@
 
     const props = defineProps({
         modelValue: {
-            type: String,
+            type: Date,
         }
     })
 
@@ -29,12 +29,16 @@
             resetButton: true,
             setup: (picker) => {
                 picker.on('selected', (date) => {
-                    emit('update:modelValue', date.dateInstance.toString());
+                    const selectedDate = date.dateInstance
+
+                    const now = new Date()
+
+                    selectedDate.setHours(now.getHours());
+                    emit('update:modelValue', selectedDate );
                 });
 
                 picker.on('clear:selection', () => {
                     emit('update:modelValue', null);
-
                 })
             },
         })

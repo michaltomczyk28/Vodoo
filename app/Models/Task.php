@@ -13,11 +13,16 @@ class Task extends Model
     protected $fillable = [
         'name',
         'description',
-        'is_done'
+        'is_done',
+        'deadline'
     ];
 
     protected $casts = [
         'is_done' => 'boolean'
+    ];
+
+    protected $dates = [
+        'deadline'
     ];
 
     public function users()

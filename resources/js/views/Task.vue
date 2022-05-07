@@ -24,22 +24,14 @@
     const editTitle = ref(false);
     const loading = ref(true);
 
-    // let picker;
-
-
     onMounted(async () => {
         await store.dispatch('task/findTask', route.params.taskId);
         task.value = await store.getters['task/activeTask'];
         loading.value = false;
-
-        // await nextTick()
-        // picker = new Litepicker({
-        //     element: document.getElementById('datepicker')
-        // })
     });
 
     async function updateTask(){
-        await store.dispatch('task/updateTask', {id: route.params.taskId, value:  task.value});
+        await store.dispatch('task/updateTask', {id: route.params.taskId, value: task.value});
         router.push('/');
     }
 
