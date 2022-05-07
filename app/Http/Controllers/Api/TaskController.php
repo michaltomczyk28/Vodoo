@@ -15,11 +15,22 @@ class TaskController extends Controller
 {
     public function index()
     {
-        $isDone = request('is_done') ?? 0;
+        $whereConditions = [];
+
+        $whereConditions['is_done'] = request('is_done') ?? 0;
+
+        if($deadline = request('deadline'))
+            $whereConditions['deadline'] = $deadline;
+
+        if($deadlineMin = request('deadlineMin'))
+            $whereConditions[] = ['deadline', '>=', $deadlineMin];
+
+        if($deadlineMax = request('deadlineMax'))
+            $whereConditions[] = ['deadline', '<=', $deadlineMax];
+
         $tasks = Auth::user()
             ->tasks()
-            ->where('is_done', $isDone)
-            ->whereDate('deadline', Carbon::today())
+            ->where($whereConditions)
             ->orderBy('created_at', 'desc')
             ->get();
 

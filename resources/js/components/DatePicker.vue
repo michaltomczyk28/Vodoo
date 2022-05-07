@@ -2,6 +2,7 @@
     import Litepicker from 'litepicker'
     import dayjs from 'dayjs'
     import {onMounted, ref} from 'vue'
+    import {fixDateIgnoringTimezone} from "../helpers/dateHelper";
 
     let picker;
 
@@ -31,10 +32,7 @@
                 picker.on('selected', (date) => {
                     const selectedDate = date.dateInstance
 
-                    const now = new Date()
-
-                    selectedDate.setHours(now.getHours());
-                    emit('update:modelValue', selectedDate );
+                    emit('update:modelValue', fixDateIgnoringTimezone(selectedDate));
                 });
 
                 picker.on('clear:selection', () => {

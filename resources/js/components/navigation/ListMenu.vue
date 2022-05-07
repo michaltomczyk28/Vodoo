@@ -12,6 +12,9 @@ const store = useStore();
 <template>
     <div class="list-menu">
         <ul class="special-list">
+            <li class="list-item" >
+                <router-link to="/all">All</router-link>
+            </li>
             <li class="list-item">
                 <router-link to="/today">Today</router-link>
             </li>

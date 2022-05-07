@@ -29534,6 +29534,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var dayjs__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! dayjs */ "./node_modules/dayjs/dayjs.min.js");
 /* harmony import */ var dayjs__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(dayjs__WEBPACK_IMPORTED_MODULE_1__);
 /* harmony import */ var vue__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! vue */ "./node_modules/vue/dist/vue.esm-bundler.js");
+/* harmony import */ var _helpers_dateHelper__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../helpers/dateHelper */ "./resources/js/helpers/dateHelper.js");
+
 
 
 
@@ -29568,9 +29570,7 @@ __webpack_require__.r(__webpack_exports__);
         setup: function setup(picker) {
           picker.on('selected', function (date) {
             var selectedDate = date.dateInstance;
-            var now = new Date();
-            selectedDate.setHours(now.getHours());
-            emit('update:modelValue', selectedDate);
+            emit('update:modelValue', (0,_helpers_dateHelper__WEBPACK_IMPORTED_MODULE_3__.fixDateIgnoringTimezone)(selectedDate));
           });
           picker.on('clear:selection', function () {
             emit('update:modelValue', null);
@@ -29587,7 +29587,8 @@ __webpack_require__.r(__webpack_exports__);
       Litepicker: (litepicker__WEBPACK_IMPORTED_MODULE_0___default()),
       dayjs: (dayjs__WEBPACK_IMPORTED_MODULE_1___default()),
       onMounted: vue__WEBPACK_IMPORTED_MODULE_2__.onMounted,
-      ref: vue__WEBPACK_IMPORTED_MODULE_2__.ref
+      ref: vue__WEBPACK_IMPORTED_MODULE_2__.ref,
+      fixDateIgnoringTimezone: _helpers_dateHelper__WEBPACK_IMPORTED_MODULE_3__.fixDateIgnoringTimezone
     };
     Object.defineProperty(__returned__, '__isScriptSetup', {
       enumerable: false,
@@ -31333,27 +31334,33 @@ var _hoisted_3 = {
   "class": "list-item"
 };
 
-var _hoisted_4 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createTextVNode)("Today");
+var _hoisted_4 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createTextVNode)("All");
 
 var _hoisted_5 = {
   "class": "list-item"
 };
 
-var _hoisted_6 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createTextVNode)("This week");
+var _hoisted_6 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createTextVNode)("Today");
 
 var _hoisted_7 = {
   "class": "list-item"
 };
 
-var _hoisted_8 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createTextVNode)("History");
+var _hoisted_8 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createTextVNode)("This week");
 
-var _hoisted_9 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createStaticVNode)("<div class=\"folders\"><h3>Your folders</h3><ul class=\"folder-list\"><li class=\"list-item\">Folder 1</li><li class=\"list-item\">Folder 2</li><li class=\"list-item\">Very important folder</li></ul></div>", 1);
+var _hoisted_9 = {
+  "class": "list-item"
+};
+
+var _hoisted_10 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createTextVNode)("History");
+
+var _hoisted_11 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createStaticVNode)("<div class=\"folders\"><h3>Your folders</h3><ul class=\"folder-list\"><li class=\"list-item\">Folder 1</li><li class=\"list-item\">Folder 2</li><li class=\"list-item\">Very important folder</li></ul></div>", 1);
 
 function render(_ctx, _cache, $props, $setup, $data, $options) {
   var _component_router_link = (0,vue__WEBPACK_IMPORTED_MODULE_0__.resolveComponent)("router-link");
 
   return (0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("div", _hoisted_1, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("ul", _hoisted_2, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("li", _hoisted_3, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_router_link, {
-    to: "/today"
+    to: "/all"
   }, {
     "default": (0,vue__WEBPACK_IMPORTED_MODULE_0__.withCtx)(function () {
       return [_hoisted_4];
@@ -31362,7 +31369,7 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
     /* STABLE */
 
   })]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("li", _hoisted_5, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_router_link, {
-    to: "/this-week"
+    to: "/today"
   }, {
     "default": (0,vue__WEBPACK_IMPORTED_MODULE_0__.withCtx)(function () {
       return [_hoisted_6];
@@ -31371,7 +31378,7 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
     /* STABLE */
 
   })]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("li", _hoisted_7, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_router_link, {
-    to: "/history"
+    to: "/this-week"
   }, {
     "default": (0,vue__WEBPACK_IMPORTED_MODULE_0__.withCtx)(function () {
       return [_hoisted_8];
@@ -31379,7 +31386,16 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
     _: 1
     /* STABLE */
 
-  })])]), _hoisted_9]);
+  })]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("li", _hoisted_9, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_router_link, {
+    to: "/history"
+  }, {
+    "default": (0,vue__WEBPACK_IMPORTED_MODULE_0__.withCtx)(function () {
+      return [_hoisted_10];
+    }),
+    _: 1
+    /* STABLE */
+
+  })])]), _hoisted_11]);
 }
 
 /***/ }),
@@ -31916,6 +31932,24 @@ var List = {
 
 /***/ }),
 
+/***/ "./resources/js/helpers/dateHelper.js":
+/*!********************************************!*\
+  !*** ./resources/js/helpers/dateHelper.js ***!
+  \********************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "fixDateIgnoringTimezone": () => (/* binding */ fixDateIgnoringTimezone)
+/* harmony export */ });
+var fixDateIgnoringTimezone = function fixDateIgnoringTimezone(date) {
+  var userTimezoneOffset = date.getTimezoneOffset() * 60000;
+  return new Date(date.getTime() - userTimezoneOffset);
+};
+
+/***/ }),
+
 /***/ "./resources/js/routes.js":
 /*!********************************!*\
   !*** ./resources/js/routes.js ***!
@@ -32190,6 +32224,9 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var _api__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../api */ "./resources/js/api/index.js");
 /* harmony import */ var _constants__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../constants */ "./resources/js/constants.js");
+/* harmony import */ var dayjs__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! dayjs */ "./node_modules/dayjs/dayjs.min.js");
+/* harmony import */ var dayjs__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(dayjs__WEBPACK_IMPORTED_MODULE_3__);
+/* harmony import */ var _helpers_dateHelper__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../helpers/dateHelper */ "./resources/js/helpers/dateHelper.js");
 
 
 function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) { try { var info = gen[key](arg); var value = info.value; } catch (error) { reject(error); return; } if (info.done) { resolve(value); } else { Promise.resolve(value).then(_next, _throw); } }
@@ -32211,11 +32248,13 @@ function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len 
 
 
 
+
+
 function initialState() {
   return {
     tasks: [],
     activeTask: {},
-    currentList: _constants__WEBPACK_IMPORTED_MODULE_2__.List.TODAY
+    currentList: _constants__WEBPACK_IMPORTED_MODULE_2__.List.ALL
   };
 }
 
@@ -32271,47 +32310,88 @@ var mutations = {
 var actions = {
   getTasks: function getTasks(_ref3) {
     return _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().mark(function _callee() {
-      var state, commit, currentList, response;
+      var state, commit, currentList, response, todayDate, deadline, deadlineMin, deadlineMax;
       return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().wrap(function _callee$(_context) {
         while (1) {
           switch (_context.prev = _context.next) {
             case 0:
               state = _ref3.state, commit = _ref3.commit;
               currentList = state.currentList;
+              todayDate = (0,_helpers_dateHelper__WEBPACK_IMPORTED_MODULE_4__.fixDateIgnoringTimezone)(new Date());
 
-              if (!(currentList === _constants__WEBPACK_IMPORTED_MODULE_2__.List.TODAY)) {
-                _context.next = 8;
+              if (!(currentList === _constants__WEBPACK_IMPORTED_MODULE_2__.List.ALL)) {
+                _context.next = 9;
                 break;
               }
 
-              _context.next = 5;
+              _context.next = 6;
               return _api__WEBPACK_IMPORTED_MODULE_1__["default"].get(route('api.tasks.index'));
 
-            case 5:
+            case 6:
               response = _context.sent;
-              _context.next = 12;
+              _context.next = 28;
               break;
 
-            case 8:
-              if (!(currentList === _constants__WEBPACK_IMPORTED_MODULE_2__.List.HISTORY)) {
-                _context.next = 12;
+            case 9:
+              if (!(currentList === _constants__WEBPACK_IMPORTED_MODULE_2__.List.TODAY)) {
+                _context.next = 16;
                 break;
               }
 
-              _context.next = 11;
+              deadline = dayjs__WEBPACK_IMPORTED_MODULE_3___default()(todayDate).format('YYYY-MM-DD');
+              _context.next = 13;
+              return _api__WEBPACK_IMPORTED_MODULE_1__["default"].get(route('api.tasks.index'), {
+                params: {
+                  deadline: deadline
+                }
+              });
+
+            case 13:
+              response = _context.sent;
+              _context.next = 28;
+              break;
+
+            case 16:
+              if (!(currentList === _constants__WEBPACK_IMPORTED_MODULE_2__.List.THIS_WEEK)) {
+                _context.next = 24;
+                break;
+              }
+
+              deadlineMin = dayjs__WEBPACK_IMPORTED_MODULE_3___default()(todayDate).day(1).format('YYYY-MM-DD');
+              deadlineMax = dayjs__WEBPACK_IMPORTED_MODULE_3___default()(todayDate).day(7).format('YYYY-MM-DD');
+              _context.next = 21;
+              return _api__WEBPACK_IMPORTED_MODULE_1__["default"].get(route('api.tasks.index'), {
+                params: {
+                  deadlineMin: deadlineMin,
+                  deadlineMax: deadlineMax
+                }
+              });
+
+            case 21:
+              response = _context.sent;
+              _context.next = 28;
+              break;
+
+            case 24:
+              if (!(currentList === _constants__WEBPACK_IMPORTED_MODULE_2__.List.HISTORY)) {
+                _context.next = 28;
+                break;
+              }
+
+              _context.next = 27;
               return _api__WEBPACK_IMPORTED_MODULE_1__["default"].get(route('api.tasks.index'), {
                 params: {
                   is_done: 1
                 }
               });
 
-            case 11:
+            case 27:
               response = _context.sent;
 
-            case 12:
+            case 28:
               commit('SET_TASKS', response.data.data);
 
-            case 13:
+            case 29:
             case "end":
               return _context.stop();
           }
@@ -32483,7 +32563,7 @@ var actions = {
   },
   changeCurrentList: function changeCurrentList(_ref11, payload) {
     var commit = _ref11.commit;
-    var currentList = payload || _constants__WEBPACK_IMPORTED_MODULE_2__.List.TODAY;
+    var currentList = payload || _constants__WEBPACK_IMPORTED_MODULE_2__.List.ALL;
     commit('SET_CURRENT_LIST', currentList);
   }
 };

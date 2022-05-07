@@ -1,12 +1,14 @@
 import api from '../api'
 import {List} from "../constants";
+import dayjs from "dayjs";
+import {fixDateIgnoringTimezone} from "../helpers/dateHelper";
 
 
 function initialState() {
     return {
         tasks: [],
         activeTask: {},
-        currentList: List.TODAY
+        currentList: List.ALL
     }
 }
 
@@ -52,9 +54,21 @@ const actions = {
         const {currentList} = state;
         let response;
 
-        if (currentList === List.TODAY)
+        const todayDate = fixDateIgnoringTimezone(new Date());
+
+        if (currentList === List.ALL) {
+
             response = await api.get(route('api.tasks.index'));
-        else if (currentList === List.HISTORY)
+        } else if (currentList === List.TODAY) {
+            const deadline = dayjs(todayDate).format('YYYY-MM-DD');
+
+            response = await api.get(route('api.tasks.index'), {params: {deadline}});
+        } else if (currentList === List.THIS_WEEK) {
+            const deadlineMin = dayjs(todayDate).day(1).format('YYYY-MM-DD');
+            const deadlineMax = dayjs(todayDate).day(7).format('YYYY-MM-DD');
+
+            response = await api.get(route('api.tasks.index'), {params: {deadlineMin, deadlineMax}});
+        } else if (currentList === List.HISTORY)
             response = await api.get(route('api.tasks.index'), {params: {is_done: 1}});
 
         commit('SET_TASKS', response.data.data);
@@ -95,7 +109,7 @@ const actions = {
         return response;
     },
     changeCurrentList({commit}, payload) {
-        const currentList = payload || List.TODAY;
+        const currentList = payload || List.ALL;
         commit('SET_CURRENT_LIST', currentList);
     }
 };

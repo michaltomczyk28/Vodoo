@@ -33,7 +33,7 @@
             await store.dispatch('task/changeCurrentList', newListName);
             await store.dispatch('task/getTasks');
         }
-    )
+    );
 
     onMounted(()=>{
         store.dispatch('task/changeCurrentList', route.params.listName);
