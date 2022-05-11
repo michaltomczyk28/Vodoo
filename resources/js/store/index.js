@@ -1,6 +1,7 @@
 import {createStore} from "vuex";
 import auth from "./auth";
 import task from './task'
+import notification from "./notification";
 
 const store = createStore({
     actions: {
@@ -10,7 +11,8 @@ const store = createStore({
     },
     modules: {
         auth,
-        task
+        task,
+        notification
     }
 })
 

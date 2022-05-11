@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Api;
 
 use App\Http\Controllers\Controller;
 use App\Models\User;
+use App\Services\ResponseMessage;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
 
@@ -29,9 +30,9 @@ class AuthController extends Controller
         $response = [
             'user' => $user,
             'token' => $token
-        ];
+        ] + ResponseMessage::success("You've succesfully signed up!");
 
-        return response($response, 201);
+        return response()->json($response, 201);
     }
 
     public function login(Request $request){
@@ -42,27 +43,22 @@ class AuthController extends Controller
 
         $user = User::where('email', $fields['email'])->first();
         if(!$user || !Hash::check($fields['password'], $user->password))
-            return response([
-                'message' => 'Bad credits'
-            ], 401);
-
+            return response()->json(ResponseMessage::error('Bad credits!'),401);
 
         $token = $user->createToken('apptoken')->plainTextToken;
 
         $response = [
             'user' => $user,
-            'token' => $token
-        ];
+            'token' => $token,
+        ] + ResponseMessage::success("You've successfully logged in!");
 
-        return response($response, 201);
+        return response()->json($response, 201);
     }
 
     public function logout(Request $request){
         auth()->user()->tokens()->delete();
 
-        return [
-            'message' => 'Logged out',
-        ];
+        return response()->json(ResponseMessage::success("You've successfully logged out!"));
     }
 
     public function user(){

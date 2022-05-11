@@ -36,31 +36,51 @@ const actions = {
             }
         })
     },
-    async register({ commit }, payload) {
-        const response = await api.post(route('api.auth.register'), payload);
-        const { user, token } = response.data;
+    async register({ commit, dispatch }, payload) {
+        try{
+            const response = await api.post(route('api.auth.register'), payload);
+            const { user, token, message } = response.data;
 
-        commit('SET_USER', user);
-        localStorage.setItem('authToken', token);
+            commit('SET_USER', user);
+            localStorage.setItem('authToken', token);
+            dispatch('notification/addNotification', message, {root: true});
 
-        return response;
+            return response;
+        } catch(error){
+            const {message} = error.response.data;
+            dispatch('notification/addNotification', message, {root: true});
+        }
     },
-    async login({ commit }, payload){
-        const response = await api.post(route('api.auth.login'), payload);
+    async login({ commit, dispatch }, payload){
+        try{
+            const response = await api.post(route('api.auth.login'), payload);
 
-        const { user, token } = response.data;
+            const { user, token, message } = response.data;
 
-        localStorage.setItem('authToken', token)
+            localStorage.setItem('authToken', token)
+            dispatch('notification/addNotification', message, {root: true});
 
-        return response;
+            return response;
+        } catch(error){
+            const {message} = error.response.data;
+            dispatch('notification/addNotification', message, {root: true});
+        }
     },
-    async logout({ commit }){
-        const response = await api.post(route('api.auth.logout'));
+    async logout({ commit, dispatch }){
+        try{
+            const response = await api.post(route('api.auth.logout'));
 
-        commit('SET_USER', null);
-        localStorage.removeItem('authToken');
+            commit('SET_USER', null);
+            localStorage.removeItem('authToken');
 
-        return response;
+            const {message} = response.data;
+            dispatch('notification/addNotification', message, {root: true});
+
+            return response;
+        } catch(error){
+            const {message} = error.response.data;
+            dispatch('notification/addNotification', message, {root: true});
+        }
     }
 };
 
@@ -71,4 +91,3 @@ export default {
     mutations,
     actions
 }
-

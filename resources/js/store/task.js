@@ -57,7 +57,6 @@ const actions = {
         const todayDate = fixDateIgnoringTimezone(new Date());
 
         if (currentList === List.ALL) {
-
             response = await api.get(route('api.tasks.index'));
         } else if (currentList === List.TODAY) {
             const deadline = dayjs(todayDate).format('YYYY-MM-DD');
@@ -77,11 +76,19 @@ const actions = {
         const response = await api.get(route('api.tasks.index'), {params: {is_done: 1}});
         commit('SET_TASKS', response.data.data);
     },
-    async createTask({commit}, payload) {
-        const response = await api.post(route('api.tasks.store'), payload);
-        commit('CREATE_TASK', response.data.data);
+    async createTask({commit, dispatch}, payload) {
+        try {
+            const response = await api.post(route('api.tasks.store'), payload);
+            commit('CREATE_TASK', response.data.data);
 
-        return response;
+            const {message} = response.data;
+            dispatch('notification/addNotification', message, {root: true})
+
+            return response;
+        } catch (error) {
+            const {message} = error.response.data;
+            dispatch('notification/addNotification', message, {root: true})
+        }
     },
     async toggleTask({commit, getters}, id) {
         const response = await api.post(route('api.tasks.toggle', {task: id}));
@@ -99,14 +106,31 @@ const actions = {
 
         return response;
     },
-    async updateTask({commit}, {id, value}) {
-        return await api.put(route('api.tasks.update', {task: id}), value);
-    },
-    async destroyTask({commit, getters}, id) {
-        const response = await api.delete(route('api.tasks.destroy', {task: id}));
-        commit('DESTROY_TASK', {getters, id});
+    async updateTask({commit, dispatch}, {id, value}) {
+        try {
+            const response = await api.put(route('api.tasks.update', {task: id}), value);
+            const {message} = response.data;
+            dispatch('notification/addNotification', message, {root: true});
 
-        return response;
+            return response;
+        } catch (error) {
+            const {message} = error.response.data;
+            dispatch('notification/addNotification', message, {root: true});
+        }
+    },
+    async destroyTask({commit, getters, dispatch}, id) {
+        try {
+            const response = await api.delete(route('api.tasks.destroy', {task: id}));
+            commit('DESTROY_TASK', {getters, id});
+
+            const {message} = response.data;
+            dispatch('notification/addNotification', message, {root: true})
+
+            return response;
+        } catch (error) {
+            const {message} = error.response.data;
+            dispatch('notification/addNotification', message, {root: true})
+        }
     },
     changeCurrentList({commit}, payload) {
         const currentList = payload || List.ALL;

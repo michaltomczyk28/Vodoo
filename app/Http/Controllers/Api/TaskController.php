@@ -7,6 +7,7 @@ use App\Http\Requests\CreateTaskRequest;
 use App\Http\Requests\UpdateTaskRequest;
 use App\Http\Resources\TaskResource;
 use App\Models\Task;
+use App\Services\ResponseMessage;
 use Illuminate\Http\Request;
 use Illuminate\Support\Carbon;
 use Illuminate\Support\Facades\Auth;
@@ -19,13 +20,13 @@ class TaskController extends Controller
 
         $whereConditions['is_done'] = request('is_done') ?? 0;
 
-        if($deadline = request('deadline'))
+        if ($deadline = request('deadline'))
             $whereConditions['deadline'] = $deadline;
 
-        if($deadlineMin = request('deadlineMin'))
+        if ($deadlineMin = request('deadlineMin'))
             $whereConditions[] = ['deadline', '>=', $deadlineMin];
 
-        if($deadlineMax = request('deadlineMax'))
+        if ($deadlineMax = request('deadlineMax'))
             $whereConditions[] = ['deadline', '<=', $deadlineMax];
 
         $tasks = Auth::user()
@@ -44,6 +45,7 @@ class TaskController extends Controller
             ->create($request->all());
 
         return (new TaskResource($task->fresh()))
+            ->additional(ResponseMessage::success("You've successfully added a new task!"))
             ->response()
             ->setStatusCode(201);
     }
@@ -61,11 +63,13 @@ class TaskController extends Controller
         $task->update($request->all());
 
         return (new TaskResource($task))
+            ->additional(ResponseMessage::success("You've successfully updated the task!"))
             ->response()
             ->setStatusCode(200);
     }
 
-    public function toggleDone(Task $task){
+    public function toggleDone(Task $task)
+    {
         $task->is_done = !$task->is_done;
         $task->save();
 
@@ -79,6 +83,7 @@ class TaskController extends Controller
         $this->authorize('delete', $task);
         $task->delete();
 
-        return response()->noContent();
+        return response()
+            ->json(ResponseMessage::success("You've successfully removed the task!"));
     }
 }
