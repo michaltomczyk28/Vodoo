@@ -7,6 +7,8 @@
   --main: #E84855;
   --hover: #ea5a66;
   --black: #000;
+  --success: #7DCE82;
+  --error: #810E18;
   --hover-content: "";
   --navbar-height: 75px;
   --vertical-padding: 6rem;
@@ -406,8 +408,6 @@ h3 {
   }
 }
 .notifications-wrapper {
-  --success: #7DCE82;
-  --error: #810E18;
   position: absolute;
   z-index: 1;
   top: calc(var(--navbar-height) + 30px);
@@ -631,6 +631,18 @@ h3 {
 .field-wrapper .input-label.active {
   transform: translateY(-1rem) scale(0.8);
   transform-origin: 0 0;
+}
+.field-wrapper .error {
+  font-size: 1.4rem;
+  font-weight: 300;
+  margin-top: 0.5rem;
+  color: var(--main);
+}
+.field-wrapper.is-invalid .input-field {
+  border-bottom-color: var(--main);
+}
+.field-wrapper.is-invalid .input-label {
+  color: var(--main);
 }
 
 .datepicker-container .litepicker {

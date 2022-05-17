@@ -59,6 +59,23 @@
             transform-origin: 0 0;
         }
     }
+
+    .error{
+        font-size: 1.4rem;
+        font-weight: 300;
+        margin-top: .5rem;
+        color: var(--main);
+    }
+
+    &.is-invalid{
+        .input-field{
+            border-bottom-color: var(--main);
+        }
+
+        .input-label{
+            color: var(--main);
+        }
+    }
 }
 
 .datepicker-container{

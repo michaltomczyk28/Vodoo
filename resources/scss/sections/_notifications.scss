@@ -1,7 +1,4 @@
 .notifications-wrapper {
-    --success: #7DCE82;
-    --error: #810E18;
-
     position: absolute;
     z-index: 1;
     top: calc(var(--navbar-height) + 30px);
