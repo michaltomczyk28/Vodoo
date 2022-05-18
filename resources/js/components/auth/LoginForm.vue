@@ -12,7 +12,7 @@
     const store = useStore();
     const router = useRouter();
 
-    const {emailRules, passwordRules} = useValidation();
+    const {emailRules, requiredRule} = useValidation();
 
     const user = reactive({
         email: '',
@@ -29,7 +29,7 @@
 <template>
     <Form class="auth-form" @submit="login">
         <InputField name="email" label="E-mail address" type="email" :validation-rules="emailRules" v-model="user.email"/>
-        <InputField name="password" label="Password" type="password" :validation-rules="passwordRules" v-model="user.password" />
+        <InputField name="password" label="Password" type="password" :validation-rules="requiredRule" v-model="user.password" />
 
         <div class="btn-wrapper">
             <Button outline>Sign in</Button>

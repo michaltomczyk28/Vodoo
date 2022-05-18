@@ -30002,7 +30002,7 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
 
     var _useValidation = (0,_composables_formValidation__WEBPACK_IMPORTED_MODULE_5__.useValidation)(),
         emailRules = _useValidation.emailRules,
-        passwordRules = _useValidation.passwordRules;
+        requiredRule = _useValidation.requiredRule;
 
     var user = (0,vue__WEBPACK_IMPORTED_MODULE_3__.reactive)({
       email: '',
@@ -30039,7 +30039,7 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
       store: store,
       router: router,
       emailRules: emailRules,
-      passwordRules: passwordRules,
+      requiredRule: requiredRule,
       user: user,
       login: login,
       Button: _Button__WEBPACK_IMPORTED_MODULE_1__["default"],
@@ -31454,7 +31454,7 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
         name: "password",
         label: "Password",
         type: "password",
-        "validation-rules": $setup.passwordRules,
+        "validation-rules": $setup.requiredRule,
         modelValue: $setup.user.password,
         "onUpdate:modelValue": _cache[1] || (_cache[1] = function ($event) {
           return $setup.user.password = $event;
