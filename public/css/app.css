@@ -7,6 +7,7 @@
   --main: #E84855;
   --hover: #ea5a66;
   --black: #000;
+  --gray: #afafaf;
   --success: #7DCE82;
   --error: #810E18;
   --hover-content: "";
@@ -336,6 +337,9 @@ h3 {
 
 .task-list {
   position: relative;
+}
+.task-list .empty-list-message {
+  color: var(--gray);
 }
 .task-list .task {
   display: flex;

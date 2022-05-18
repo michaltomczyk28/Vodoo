@@ -13,7 +13,8 @@
     const tasks = computed(() => store.getters['task/tasks']);
     const currentList = computed(() => store.getters['task/currentList']);
 
-    const showNewTaskInput = computed(() => currentList.value !== List.HISTORY)
+    const showNewTaskInput = computed(() => currentList.value === List.ALL)
+    const isEmpty = computed(() => tasks.value.length === 0);
 
 
     const taskName = ref('');
@@ -45,6 +46,7 @@
     <div class="task-list">
         <div class="container">
             <TaskListItem v-for="task in tasks" :task="task" />
+            <h1 class="empty-list-message" v-if="isEmpty">There are no tasks in this list!</h1>
 
             <div class="task-new" v-if="showNewTaskInput">
                 <InputField label="New task" v-model="taskName" @keyup.enter="addTask"/>

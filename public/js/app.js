@@ -30408,7 +30408,10 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
       return store.getters['task/currentList'];
     });
     var showNewTaskInput = (0,vue__WEBPACK_IMPORTED_MODULE_4__.computed)(function () {
-      return currentList.value !== _constants__WEBPACK_IMPORTED_MODULE_3__.List.HISTORY;
+      return currentList.value === _constants__WEBPACK_IMPORTED_MODULE_3__.List.ALL;
+    });
+    var isEmpty = (0,vue__WEBPACK_IMPORTED_MODULE_4__.computed)(function () {
+      return tasks.value.length === 0;
     });
     var taskName = (0,vue__WEBPACK_IMPORTED_MODULE_4__.ref)('');
 
@@ -30460,6 +30463,7 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
       tasks: tasks,
       currentList: currentList,
       showNewTaskInput: showNewTaskInput,
+      isEmpty: isEmpty,
       taskName: taskName,
       addTask: addTask,
       toggleTask: toggleTask,
@@ -31824,6 +31828,10 @@ var _hoisted_2 = {
 };
 var _hoisted_3 = {
   key: 0,
+  "class": "empty-list-message"
+};
+var _hoisted_4 = {
+  key: 1,
   "class": "task-new"
 };
 function render(_ctx, _cache, $props, $setup, $data, $options) {
@@ -31835,7 +31843,7 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
     , ["task"]);
   }), 256
   /* UNKEYED_FRAGMENT */
-  )), $setup.showNewTaskInput ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("div", _hoisted_3, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)($setup["InputField"], {
+  )), $setup.isEmpty ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("h1", _hoisted_3, "There are no tasks in this list!")) : (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("v-if", true), $setup.showNewTaskInput ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("div", _hoisted_4, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)($setup["InputField"], {
     label: "New task",
     modelValue: $setup.taskName,
     "onUpdate:modelValue": _cache[0] || (_cache[0] = function ($event) {

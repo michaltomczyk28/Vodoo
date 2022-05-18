@@ -1,6 +1,11 @@
 .task-list{
     position: relative;
 
+    .empty-list-message{
+        color: var(--gray);
+        //text-transform: uppercase;
+    }
+
     .task{
         display: flex;
         justify-content: space-between;
