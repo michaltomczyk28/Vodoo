@@ -1,6 +1,10 @@
+
 # Vodoo
 Vodoo is a task management application with user registration, WYSIWYG editor and task scheduling capability 
 built using Laravel 8 REST API and Vue 3.
+## Preview
+<img src="https://i.imgur.com/KpsqF0w.png" />
+
 ## Tech stack
 * Laravel 8
 * Vue 3 (Composition API)
