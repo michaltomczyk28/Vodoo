@@ -21,18 +21,18 @@ built using Laravel 8 REST API and Vue 3.
 6. Start local server `php artisan serve`
 7. Visit `localhost:8000`
  ## Roadmap
- -[x] User authentication
- -[x] CRUD operations for tasks
- -[x] Dashboard view
- -[x] WYSIWYG editor for task descriptions
- -[x] History of completed tasks
- -[x] Datepicker for task deadlines
- -[x] Popup notifications
- -[x] Form validation
- -[ ] Grouping tasks in folders
- -[ ] Sorting/filtering tasks
- -[ ] Statistics
- -[ ] User settings
- -[ ] Email notifications
- -[ ] Attaching files to tasks
- -[ ] Sharing tasks with other users
+ - [x] User authentication
+ - [x] CRUD operations for tasks
+ - [x] Dashboard view
+ - [x] WYSIWYG editor for task descriptions
+ - [x] History of completed tasks
+ - [x] Datepicker for task deadlines
+ - [x] Popup notifications
+ - [x] Form validation
+ - [ ] Grouping tasks in folders
+ - [ ] Sorting/filtering tasks
+ - [ ] Statistics
+ - [ ] User settings
+ - [ ] Email notifications
+ - [ ] Attaching files to tasks
+ - [ ] Sharing tasks with other users
